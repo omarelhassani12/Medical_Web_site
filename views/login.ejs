@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Medicio</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/" rel="icon">
+  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="static/css/myAuthStyle.css" rel="stylesheet">
+ <style>
+.alert {
+  justify-content: center;
+  width: 40%;
+  height: 2%;
+  padding: 20px;
+  background-color: #f63628e0;
+  color: white;
+  opacity: .8;
+  transition: opacity 0.6s;
+  margin-bottom: 4px;
+  display: none;
+}
+
+.alert.success {background-color: #04AA6D;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+ </style>
+</head>
+
+<body> 
+    <div class="container">
+       <div style="display: flex;">
+        <div class="alert">
+        <span class="closebtn">&times;</span>  
+        <strong>Danger!</strong><p id="invalid-input"></p>
+      </div></div>
+      <div class="alert success">
+        <span class="closebtn">&times;</span>  
+        <strong>Success!</strong> <p id="has-been"></p>
+      </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <div class="d-flex justify-content-center">
+                  
+                   <button class="btn btn-link active w-25" id="login-btn">Login</button>  
+                   <button class="btn btn-link w-25" id="register-btn">Register</button>  
+                </div>
+              </div>
+              <div class="card-body">
+                 <!-- login form with icons -->
+              
+                  <!-- <form id="login-form" action="./appointmentpage.html">
+                  <div class="form-group">
+                    <label for="email">Email<span class="required"></span></label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                      </div>
+                      <input type="email"  title="password-login"  class="form-control" id="login-email" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password<span class="required"></span></label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                      </div>
+                      <input type="password" title="password-login" class="form-control" id="login-password" required>
+                      <span class="password-toggle-icon">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-group d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary btn-block login-btn">Login</button>
+                  </div>
+                </form>  -->
+                
+
+                 <!-- login form without icons -->
+                <form id="login-form">
+                  <div class="form-group">
+                    <label for="email">Email<span class="required"></span></label>
+                    <input type="email" title="email" name="email"  class="form-control" id="email-registration" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password<span class="required"></span></label>
+                    <input type="password" title="password" name="password" class="form-control" id="password-field" required>
+                    <span class="password-toggle-icon">
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </span>
+                    <div class="error-message">
+                      <p class="text-danger" id="invalideError"></p>
+                    </div>
+                  </div>
+                  <div class="form-group d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary btn-block login-btn">Login</button>
+                  </div>
+                </form>  
+                <!-- End of Login form -->
+      
+               
+                
+                <!-- Registration form without icons -->
+
+                <form id="registerForm"   >
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="first-name">First Name<span class="required"></span></label>
+                      <input type="text" name="firstName" class="form-control" id="first-name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="last-name">Last Name<span class="required"></span></label>
+                      <input type="text" name="lastName" class="form-control" id="last-name" required>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email<span class="required"></span></label>
+                    <input type="email" name="email" class="form-control" id="email" required>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="phone">Phone</label>
+                      <input type="tel" name="tele" minlength="10" maxlength="10" class="form-control" id="phone">
+                    </div> 
+                    <div class="form-group col-md-6">
+                      <label for="cin">CIN</label>
+                      <input type="text" name="cni" class="form-control" id="cni">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" class="form-control" id="address">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password<span class="required"></span></label>
+                    <input type="password" name="password" maxlength="20" class="form-control" id="password" required>
+                    <span class="password-toggle-icon">
+                      <i class="fa fa-eye" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="form-group d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary btn-block register-btn">Register</button>
+                  </div>
+                </form>
+                
+                <!-- End of Registration form -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    
+
+	<!-- Add JavaScript here -->
+  <script src="static/js/myAuthScript.js"></script>
+  <script src="static/js/register.js"></script>
+
+  <script> 
+    const Form = document.getElementById('login-form');
+    const error = document.querySelector('#invalideError') 
+     Form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+        const email = Form.email.value;
+        const password = Form.password.value;
+        try {
+          const response = await fetch('/login' , {
+            method: 'POST',
+            body : JSON.stringify({email : email, password : password}) ,
+            headers: { 'Content-Type': 'application/json' },
+          });
+          var data = await response.json();
+  
+          if (data.user) {
+  
+             console.log(data.user);
+             location.assign('/') ;
+             if (data.user.role == 1) {
+                location.assign('./dashboard') ;
+             } else if (data.user.role == 2) {
+              location.assign('./dashboard') ;
+             } else {
+               location.assign('./') ;
+              }
+
+          }else if (data.error) {
+          
+            error.innerHTML = data.error;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+       
+     })
+  </script>
+  <script>
+
+
+
+const formRegistre = document.querySelector('#registerForm');
+const errorsHandel = document.querySelector('#invalid-input');
+const displayAlert = document.querySelector('.alert');
+const closebtn = document.querySelector('.closebtn');
+closebtn.addEventListener('click', () => {
+
+  displayAlert.style.display = 'none';
+})
+formRegistre.addEventListener('submit' ,async  (e) =>{
+    e.preventDefault();
+    const lastName = document.getElementById('last-name').value
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const address = document.getElementById('address').value;
+    const phone = document.getElementById('phone').value;
+    const firstName = document.getElementById('first-name').value;
+    const cni = document.getElementById('cni').value;
+ 
+    try {
+       const res = await fetch('/register' , {
+        body : JSON.stringify({
+            lastName : lastName,
+            email : email,
+            password : password,
+            address : address,
+            phone : phone,
+            cni : cni,
+            firstName : firstName,
+        }) ,
+        method : 'POST' ,
+        headers : {
+            'Content-Type' : 'application/json'
+        }
+    }) ;
+
+
+    const data = await res.json();
+
+    if (data.errors) { 
+      displayAlert.style.display = 'block';
+    for(const [key , value] of Object.entries(data.errors)) {
+      if (value.length > 0) {
+        errorsHandel.innerHTML += value + '<br>' ;
+      }
+      
+    }
+    console.log(data);
+  }else if (data.user) {
+      location.assign('/login');
+    } else console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+   
+})
+</script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.css" rel="stylesheet" />
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.0/mdb.min.js"></script>
+    <style>
+         html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+     #chat3 .form-control {
+border-color: transparent;
+}
+#chat3 .form-control:focus {
+border-color: transparent;
+box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.badge-dot {
+border-radius: 50%;
+height: 10px;
+width: 10px;
+margin-left: 2.9rem;
+margin-top: -.75rem;
+}
+
+/* Custom Scrollbar */
+[data-mdb-perfect-scrollbar] {
+overflow: auto;
+scrollbar-width: thin;
+scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1);
+}
+
+[data-mdb-perfect-scrollbar]::-webkit-scrollbar {
+width: 8px;
+}
+
+[data-mdb-perfect-scrollbar]::-webkit-scrollbar-track {
+background-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-mdb-perfect-scrollbar]::-webkit-scrollbar-thumb {
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0.5);
+}
+
+[data-mdb-perfect-scrollbar]::-webkit-scrollbar-thumb:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Custom Scrollbar End */
+</style>
+
+</head>
+<body data-doc="<%= user.id %>">
+   <section style="background-color: #CDC4F9;">
+  <div class="container py-5">
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="card" id="chat3" style="border-radius: 15px;">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-md-6 col-lg-5 col-xl-4 mb-4 mb-md-0">
+
+                <div class="p-3">
+
+                  <div class="input-group rounded mb-3">
+                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                      aria-describedby="search-addon" />
+                    <span class="input-group-text border-0" id="search-addon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </div>
+
+                  <div data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
+                    <ul class="list-unstyled mb-0" >
+                         
+                      <% if (users && users.length > 0) { %>
+                        <!-- Start of foreach loop -->
+                        <% users.forEach(function(element) { %>
+                          <li class="p-2 border-bottom">
+                            <a style="cursor: pointer;" onclick="getDisc(['<%= element.id %>', '<%= user.id %>', '<%= element.firstName %>  <%= element.lastName %>'])" class="d-flex justify-content-between">
+                              <div class="d-flex flex-row align-items-center">
+                                <div>
+                                  <img src="user_profile.png" alt="avatar" class="d-flex align-self-center me-3" width="60">
+                                  <span class="badge bg-danger badge-dot"></span>
+                                </div>
+                                <div class="flex-grow-1">
+                                  <p class="fw-bold text-center mb-0"><%= element.firstName + " " + element.lastName %></p>
+                                </div>
+                              </div>
+                            </a>
+                          </li>
+                          
+                        <% }); %>
+                        <!-- End of foreach loop -->
+                      <% } else { %>
+                        <div class="text-center">
+                          <p>No chat available</p>
+                        </div>
+                      <% } %>
+                      
+
+                    </ul>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-6 col-lg-7 col-xl-8" id="imgDisc">
+                <div class="align-items-center">
+                  <img src="chat.jpg" alt="" class="w-100">
+                </div>
+              </div>
+              
+
+              <div class="col-md-6 col-lg-7 col-xl-8" id="containerMsg" style="display: none;" >
+                <div class="d-flex flex-row align-items-center">
+                  <div>
+                    <img src="user_profile.png" alt="avatar" class="d-flex align-self-center me-3" width="60">
+                   </div>
+                  <div class="flex-grow-1">
+                    <p class="fw-bold   mb-0" id="nameReceiver"></p>
+                  </div>
+                </div>
+                <div class="pt-3 pe-3" id="listMessages" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 400px">
+
+
+
+                </div>
+
+                <div class="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2" >
+                  <img src="user_profile.png" alt="avatar 3" style="width: 40px; height: 100%;">
+                     <input type="hidden" id="idReceiver" name="idReceiver">
+                    <input type="text" class="form-control form-control-lg" id="content" placeholder="Type message">
+                   <a class="ms-3" style="cursor: pointer;" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></a>
+                </div>
+                
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+</body>
+<script src="js/chat.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+  const idUser = document.body ;
+  var listMessages = document.getElementById('listMessages');
+
+  var socket = io('http://localhost:8000', {
+  query: {
+    idSender: idUser.dataset.doc // replace with your desired sourceID value
+  }
+  });
+
+    socket.on('/receiver' , (msg)=>{
+      var messageUI = "<div class='d-flex flex-row justify-content-start'><img src='user_profile.png'alt='avatar 1' style='width: 45px; height: 100%;'><div><p class='small p-2 ms-3 mb-1 rounded-3' style='background-color: #f5f6f7;'>"+ msg.content +"<p class='small ms-3 mb-3 rounded-3 text-muted float-end'>" +msg.dateMessage+ "</p></div></div>"
+            listMessages.innerHTML += messageUI;
+    })
+
+   function sendMessage() {
+    var listMessages = document.getElementById('listMessages');
+    var idReceiver = document.getElementById('idReceiver').value;
+    var content = document.getElementById('content').value;
+    const date = new Date();
+
+    socket.emit('/message' , {
+      idSender : idUser.dataset.doc ,
+      idReceiver : idReceiver ,
+      content : content ,
+      dateMessage : date.toLocaleTimeString()
+    })
+
+    sendMessageDB(event , idUser.dataset.doc);
+
+   }  
+
+</script>
+</html>

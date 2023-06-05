@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Hanaa Draa Clinic: Providing Quality Healthcare Services</title>
+
+
+<style>
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.external-event {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+</style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <!-- <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div> -->
+ <%- include('./components/navbar') %>
+
+ <%- include('./components/sidebar') %>
+
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Dashboard</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Modal Update Appointment -->
+    <!-- Modal -->
+      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editAppointmentModalLabel">Edit Appointment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="input1">Input 1</label>
+                  <input type="text" class="form-control"  id="mydateAppointment" placeholder="Input 1">
+                </div>
+                <div class="col-md-6">
+                  <label for="input2">Input 2</label>
+                  <input type="text" class="form-control" id="input2" placeholder="Input 2">
+                </div>
+              </div>
+ 
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="submitAppointment">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    <!-- End Modal -->
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><%= userCounts.find(obj => obj.role === 1).count %></h3>
+                <p>Doctors</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-user-md"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>     
+                  
+                  <% const patientsCount = userCounts.find(obj => obj.role === 3); %>
+                  <%= patientsCount && patientsCount.count ? patientsCount.count : 0 %></h3>
+                <p>Patients</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-procedures"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner"style="color: white;">
+                 <h3 id="appointmentCount" >Loading...</h3>
+
+                <p>Appointments</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3>65</h3>
+        
+                <p>Reports</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        
+        <!-- /.row (main row) -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">To day appointments</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped ">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Hour</th>
+                      <th>Patient</th>
+                      <th>Actions</th> <!-- New column for actions -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% appointments.forEach(appointment => { %>
+                    <tr> 
+                      <td><%- appointment.DateApp %></td>
+                      <td><%- appointment.HourApp %></td>
+                      <td><%- appointment.user.firstName %> <%- appointment.user.lastName %></td>
+                      <td>
+                          <a data-doc="<%= appointment.id %>" role="button" class="delete-appointment" style="display: flex; align-items: center; justify-content: center;" >
+                            <span class="btn btn-sm btn-danger btn-floating"><i class="fas fa-trash-alt"></i></span>
+                          </a>
+                       </td>
+                      
+                    </tr>
+                    <% }) %>
+                  </tbody>
+                </table>
+                
+                
+              </div>
+              <!-- /.card-body -->
+            </div>
+          </div>
+          <!-- /.col -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <%- include('./components/footer') %>
+
+
+</div>
+<!-- ./wrapper -->
+
+
+<!-- Page specific script -->
+ <script src="js/index.js"></script>
+
+</body>
+</html>
+
+

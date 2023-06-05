@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Hanaa Draa Clinic: Providing Quality Healthcare Services</title>
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+  rel="stylesheet"
+/>
+
+<style>
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.external-event {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+</style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <!-- <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div> -->
+ <%- include('./components/navbar') %>
+
+ <%- include('./components/sidebar') %>
+
+
+
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Doctors</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- Modal Edit Doctor -->
+    <div class="modal top fade" id="EditDoctor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
+      <!-- Modal content -->
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Doctor</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <form  id="EdiDoctor"  >
+              <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="input-name" class="col-form-label">Nom:</label>
+                    <input type="text" name="lastName" class="form-control" id="input-name" required />
+                    <input type="hidden" id="idDoctor">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="input-prenom" class="col-form-label">Prenom:</label>
+                    <input type="text" name="firstName" class="form-control" id="input-prenom" required />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="input-tele" class="col-form-label">Telephone:</label>
+                    <input type="tel" name="tele" class="form-control" id="input-tele" required />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="input-cni" class="col-form-label">CNI:</label>
+                    <input type="text" name="cni" class="form-control" id="input-cni" required />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="input-email" class="col-form-label">Email :</label>
+                  <input type="email" name="email" class="form-control" id="input-email" required />
+                </div>
+                <div class="mb-3">
+                  <label for="input-address" class="col-form-label">Address :</label>
+                  <input type="text" name="address" class="form-control" id="input-address" required />
+                </div>
+                <div class="mb-3">
+                  <label for="input-Password" class="col-form-label">Password :</label>
+                  <input type="text" name="password" class="form-control" id="input-Password"  />
+                </div>
+
+           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">add Doctor</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal Edit Doctor -->
+
+    <!-- /.content-header -->
+    <!-- Modal Ajouter Doctor -->
+    <div class="modal top fade" id="Ajouter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ajouter Doctor</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form action="../admin-add-doctor" id="FormAddDoctor" method="post" >
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="input-name" class="col-form-label">Nom:</label>
+                      <input type="text" name="lastName" class="form-control" id="input-name" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="input-prenom" class="col-form-label">Prenom:</label>
+                      <input type="text" name="firstName" class="form-control" id="input-prenom" required />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="input-tele" class="col-form-label">Telephone:</label>
+                      <input type="tel" name="tele" class="form-control" id="input-tele" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="input-cni" class="col-form-label">CNI:</label>
+                      <input type="text" name="cni" class="form-control" id="input-cni" required />
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="input-email" class="col-form-label">Email :</label>
+                    <input type="email" name="email" class="form-control" id="input-email" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="input-address" class="col-form-label">Address :</label>
+                    <input type="text" name="address" class="form-control" id="input-address" required />
+                  </div>
+                  <div class="mb-3">
+                    <label for="input-Password" class="col-form-label">Password :</label>
+                    <input type="text" name="password" class="form-control" id="input-Password" required />
+                  </div>
+
+             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">add Doctor</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+    <!--End Modal Ajouter Doctor -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-end mb-3"> 
+            <button
+            type="button"
+            class="btn btn-primary"
+            data-mdb-toggle="modal"
+            data-mdb-target="#Ajouter"
+            data-mdb-whatever="@mdo"
+            >
+            <i class="fa fa-plus"></i> Doctor
+        </button>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">To day appointments</h3>
+              </div>
+              <div class="card-body">
+
+
+                <table id="example1" class="table table-bordered table-striped ">
+                  <thead>
+                    <tr>
+                      <th>Complete Name</th>
+                      <th>Telephone</th>
+                      <th>Adress</th>
+                      <th>Email</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Loop through doctors data and generate rows -->
+
+                    <% doctors.forEach(doctor => { 
+                      if (doctor.id !== user.id) { %>
+                    <tr id="<%= doctor.id %>">
+                      <td><%- doctor.firstName + " " + doctor.lastName%></td>
+                       <td><%- doctor.telephone %></td>
+                       <td><%- doctor.address %></td>
+                      <td><%- doctor.email %></td>
+                      <td class="text-center">
+                        <span class="btn btn-sm btn-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#EditDoctor" data-mdb-whatever="@mdo" onclick="openEditModal('EditDoctor',  '<%= JSON.stringify(doctor) %>')" ><i class="fas fa-edit"></i></span>
+                        <span class="btn btn-sm btn-danger btn-floating" onclick="removeDoctor('<%= doctor.id %>')"><i class="fas fa-trash-alt"></i></span>
+                      </td>
+                      
+                    </tr>
+                    <% } }) %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <%- include('./components/footer') %>
+
+</div>
+<!-- ./wrapper -->
+
+
+ 
+</body>
+ 
+  <!-- Page specific script -->
+ <script src="js/doctor.js"></script>
+</html>

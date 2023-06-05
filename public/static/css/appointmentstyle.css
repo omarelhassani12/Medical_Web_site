@@ -1,0 +1,299 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-image: url("../../assets/img/features.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh; 
+    margin: 0; 
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+h1 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+select:focus {
+    outline: none;
+    border-color: #3FBBC0;
+    box-shadow: 0 0 5px #3FBBC0;
+}
+
+.calender {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.calender .day {
+    flex-basis: calc(100% / 7);
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.calender .day.today {
+    background-color: #3FBBC0;
+    color: #fff;
+}
+
+.calender .date {
+    padding: 10px;
+    flex-basis: calc(100% / 7);
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.calender .date:hover {
+    background-color: #3FBBC0;
+    color: #fff;
+}
+
+.selected {
+    background-color: #3FBBC0;
+    color: #fff;
+}
+
+.select-number {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.select-number label {
+    margin-right: 10px;
+}
+
+.select-number select {
+    width: 60px;
+    margin-right: 10px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #3FBBC0;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #2D9DB0;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+.modal-content-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+background-color: #ffffff;
+padding: 20px;
+border-radius: 10px;
+max-width: 400px;
+width: 100%;
+text-align: center;
+}
+
+.modal-content h2 {
+font-size: 24px;
+margin-bottom: 20px;
+color: #3FBBC0;
+}
+
+.modal-content p {
+font-size: 16px;
+margin-bottom: 20px;
+color: #333333;
+}
+
+.modal-content .btn {
+background-color: #3FBBC0;
+color: #ffffff;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+cursor: pointer;
+transition: all 0.3s ease-in-out;
+}
+
+.modal-content .btn:hover {
+background-color: #2D8D91;
+}
+
+.container {
+background-color: #f5f5f5;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+padding: 70px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.container form {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+}
+
+.container .form-group {
+margin-bottom: 20px;
+width: 100%;
+}
+
+.container label {
+color: #333;
+display: block;
+font-size: 18px;
+font-weight: 600;
+margin-bottom: 10px;
+}
+
+.container input {
+border-radius: 5px;
+border: none;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+padding: 10px;
+width: 100%;
+}
+
+.container select {
+border-radius: 5px;
+border: none;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+padding: 10px;
+width: 100%;
+}
+
+.container button {
+border-radius: 5px;
+border: none;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+color: #fff;
+cursor: pointer;
+font-size: 18px;
+font-weight: 600;
+padding: 10px 20px;
+margin-top: 20px;
+}
+
+.container button.next-btn {
+background-color: #3FBBC0;
+}
+
+.container button.prev-btn {
+background-color: #6c757d;
+}
+
+.container button.finish-btn {
+background-color: #3FBBC0;
+}
+
+
+.container .modal-content {
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+padding: 20px;
+text-align: center;
+}
+
+.container .modal-header {
+border-bottom: none;
+}
+
+.container .modal-title {
+color: #333;
+font-size: 24px;
+font-weight: 600;
+margin-bottom: 10px;
+}
+
+.container .modal-body {
+font-size: 18px;
+margin-bottom: 20px;
+}
+
+.container .modal-confirm-btn {
+background-color: #3FBBC0;
+}
+
+.container .modal-cancel-btn {
+background-color: #6c757d;
+color: #fff;
+}
+
+
+.row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.calendar {
+width: 50%;
+}
+
+.attendees {
+width: 40%;
+}
+
+
+
+

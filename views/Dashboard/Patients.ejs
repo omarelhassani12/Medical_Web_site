@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr. Hanaa Draa Clinic: Providing Quality Healthcare Services</title>
+<!-- Font Awesome -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
+  rel="stylesheet"
+/>
+
+<style>
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.external-event {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+</style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <!-- <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div> -->
+ <%- include('./components/navbar') %>
+
+ <%- include('./components/sidebar') %>
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Patients</h1>
+          </div>
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+
+       <!-- Main content -->
+       <section class="content">
+        <div class="container-fluid">
+           </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">To day appointments</h3>
+                </div>
+                <div class="card-body">
+                    <div class="text-start mb-4">
+                      <button id="deleteButton" type="button" onclick="handleRemovePatients()" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark">DELETE Selected</button>
+                    </div>
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                          <tr>
+                            <th>Select</th>
+                            <th>Complete Name</th>
+                            <th>Telephone</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <!-- Loop through patients data and generate rows -->
+                          <% Patients.forEach(patient => { 
+                            if (patient.id !== user.id) { %>
+                          <tr id="<%= patient.id %>">
+                            <td class="text-center">
+                              <input type="checkbox" class="form-check-input"  data-id="<%= patient.id %>">
+                            </td>
+                            <td><%- patient.firstName + " " + patient.lastName%></td>
+                            <td><%- patient.telephone %></td>
+                            <td><%- patient.address %></td>
+                            <td><%- patient.email %></td>
+                            <td class="text-center">
+                              <span class="btn btn-sm btn-danger btn-floating" onclick="removePatient('<%= patient.id %>')"><i class="fas fa-trash-alt"></i></span>
+                            </td>
+                          </tr>
+                          <% } }) %>
+                        </tbody>
+                      </table>                    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+  
+    <%- include('./components/footer') %>
+  
+  </div>
+  <!-- ./wrapper -->
+  
+  
+   
+  </body>
+   
+    <!-- Page specific script -->
+    <script src="js/patient.js"></script>
+   </html>
+  

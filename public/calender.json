@@ -1,0 +1,122 @@
+[
+	{
+		"Monday": {
+			"AM": {
+				"StartAt": {
+					"Hour": "09",
+					"Minute": "00"
+				},
+				"EndAt": null
+			},
+			"PM": {
+				"StartAt": null,
+				"EndAt": {
+					"Hour": "18",
+					"Minute": "30"
+				}
+			}
+		}
+	},
+	{
+		"Tuesday": {
+			"AM": {
+				"StartAt": {
+					"Hour": "09",
+					"Minute": "00"
+				},
+				"EndAt": null
+			},
+			"PM": {
+				"StartAt": null,
+				"EndAt": {
+					"Hour": "18",
+					"Minute": "30"
+				}
+			}
+		}
+	},
+	{
+		"Windsday": {
+			"AM": {
+				"StartAt": {
+					"Hour": "09",
+					"Minute": "00"
+				},
+				"EndAt": null
+			},
+			"PM": {
+				"StartAt": null,
+				"EndAt": {
+					"Hour": "18",
+					"Minute": "30"
+				}
+			}
+		}
+	},
+	{
+		"Thursday": {
+			"AM": {
+				"StartAt": {
+					"Hour": "09",
+					"Minute": "00"
+				},
+				"EndAt": null
+			},
+			"PM": {
+				"StartAt": null,
+				"EndAt": {
+					"Hour": "18",
+					"Minute": "30"
+				}
+			}
+		}
+	},
+	{
+		"Friday": {
+			"AM": {
+				"StartAt": {
+					"Hour": "09",
+					"Minute": "00"
+				},
+				"EndAt": null
+			},
+			"PM": {
+				"StartAt": null,
+				"EndAt": {
+					"Hour": "18",
+					"Minute": "30"
+				}
+			}
+		}
+	},
+	{
+		"Sunday": {
+			"AM": {
+				"StartAt": {
+					"Hour": "09",
+					"Minute": "00"
+				},
+				"EndAt": null
+			},
+			"PM": {
+				"StartAt": null,
+				"EndAt": {
+					"Hour": "18",
+					"Minute": "30"
+				}
+			}
+		}
+	},
+	{
+		"Saturday": {
+			"AM": {
+				"StartAt": null,
+				"EndAt": null
+			},
+			"PM": {
+				"StartAt": null,
+				"EndAt": null
+			}
+		}
+	}
+]
