@@ -39,7 +39,7 @@ const getDisc = async (req, res) => {
         idSender: idsender,
         idReceiver: idreceiver
       },
-      order: [['dateMessage', 'DESC']] // Order the messages by the dateMessage column in descending order
+      order: [['dateMessage', 'ASC']] // Order the messages by the dateMessage column in descending order
     });
     console.log(messages);
     // Return the messages to the client or perform any other necessary actions

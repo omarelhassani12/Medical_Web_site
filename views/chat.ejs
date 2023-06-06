@@ -179,8 +179,10 @@ background-color: rgba(0, 0, 0, 0.8);
   });
 
     socket.on('/receiver' , (msg)=>{
+
       var messageUI = "<div class='d-flex flex-row justify-content-start'><img src='user_profile.png'alt='avatar 1' style='width: 45px; height: 100%;'><div><p class='small p-2 ms-3 mb-1 rounded-3' style='background-color: #f5f6f7;'>"+ msg.content +"<p class='small ms-3 mb-3 rounded-3 text-muted float-end'>" +msg.dateMessage+ "</p></div></div>"
             listMessages.innerHTML += messageUI;
+            scrollToBottom()
     })
 
    function sendMessage() {
@@ -188,7 +190,6 @@ background-color: rgba(0, 0, 0, 0.8);
     var idReceiver = document.getElementById('idReceiver').value;
     var content = document.getElementById('content').value;
     const date = new Date();
-
     socket.emit('/message' , {
       idSender : idUser.dataset.doc ,
       idReceiver : idReceiver ,

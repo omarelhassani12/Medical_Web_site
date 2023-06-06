@@ -116,7 +116,7 @@ margin-top: -.75rem;
 
       <% if (user) { %>
         <% if (!user.isMakeApp) { %>
-          <a href="#" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>      
+          <a href="#" class="appointment-btn scrollto" id="makeApp"><span class="d-none d-md-inline">Make an</span> Appointment</a>      
            <a href="#" data-doc="<%= user.id %>" id="idUser" class="nav-link scrollto"> <b><%= user.firstName+ ' ' + user.lastName %></b></a>
           <a href="/logout" id="logout" class="appointment-btn">Log Out</a>
         <% } else { %>
