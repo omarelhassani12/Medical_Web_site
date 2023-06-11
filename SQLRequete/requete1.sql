@@ -16,7 +16,7 @@
 
 
 -- Listage de la structure de la base pour sql9616314
-CREATE DATABASE IF NOT EXISTS `sql9616314` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `sql9616314` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `sql9616314`;
 
 -- Listage de la structure de table sql9616314. appointments
@@ -31,51 +31,14 @@ CREATE TABLE IF NOT EXISTS `appointments` (
   PRIMARY KEY (`id`),
   KEY `FK_appointment_users` (`idDoc`),
   KEY `FK_appointment_users_2` (`idPat`),
-  CONSTRAINT `FK_appointment_users` FOREIGN KEY (`idDoc`) REFERENCES `users` (`id`),
-  CONSTRAINT `FK_appointment_users_2` FOREIGN KEY (`idPat`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `FK_appointment_users` FOREIGN KEY (`idDoc`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK_appointment_users_2` FOREIGN KEY (`idPat`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table sql9616314.appointments : ~39 rows (environ)
+-- Listage des données de la table sql9616314.appointments : ~2 rows (environ)
 REPLACE INTO `appointments` (`id`, `DateApp`, `idPat`, `idDoc`, `createdAt`, `updatedAt`, `HourApp`) VALUES
-	(1, '2023-05-25', 2, 2, '2023-05-17 07:48:41', '2023-05-17 07:48:41', '12:11'),
-	(2, '2023-05-25', 2, 2, '2023-05-17 07:48:42', '2023-05-17 07:48:42', '12:11'),
-	(3, '2023-05-25', 2, 2, '2023-05-17 07:48:43', '2023-05-17 07:48:43', '12:11'),
-	(4, '2023-05-25', 2, 2, '2023-05-17 07:48:43', '2023-05-17 07:48:43', '12:11'),
-	(5, '2023-05-25', 2, 2, '2023-05-17 07:48:44', '2023-05-17 07:48:44', '12:11'),
-	(6, '2023-05-25', 2, 2, '2023-05-17 07:48:44', '2023-05-17 07:48:44', '12:11'),
-	(7, '2023-05-25', 2, 2, '2023-05-17 07:48:44', '2023-05-17 07:48:44', '12:11'),
-	(8, '2023-05-25', 2, 2, '2023-05-17 07:48:45', '2023-05-17 07:48:45', '12:11'),
-	(9, '2023-05-25', 2, 2, '2023-05-17 07:48:45', '2023-05-17 07:48:45', '12:11'),
-	(10, '2023-05-25', 2, 2, '2023-05-17 07:48:46', '2023-05-17 07:48:46', '12:11'),
-	(11, '2023-05-25', 2, 2, '2023-05-17 07:48:46', '2023-05-17 07:48:46', '12:11'),
-	(12, '2023-05-25', 2, 2, '2023-05-17 07:48:46', '2023-05-17 07:48:46', '12:11'),
-	(13, '2023-05-25', 2, 2, '2023-05-17 07:48:46', '2023-05-17 07:48:46', '12:11'),
-	(14, '2023-05-25', 2, 2, '2023-05-17 07:48:47', '2023-05-17 07:48:47', '12:11'),
-	(15, '2023-05-25', 2, 2, '2023-05-17 07:48:47', '2023-05-17 07:48:47', '12:11'),
-	(16, '2023-05-25', 2, 2, '2023-05-17 07:48:47', '2023-05-17 07:48:47', '12:11'),
-	(17, '2023-05-25', 2, 2, '2023-05-17 07:48:48', '2023-05-17 07:48:48', '12:11'),
-	(18, '2023-05-25', 2, 2, '2023-05-17 14:18:24', '2023-05-17 14:18:24', '20:11'),
-	(19, '2023-05-25', 2, 2, '2023-05-17 14:18:25', '2023-05-17 14:18:25', '20:11'),
-	(20, '2023-05-25', 2, 2, '2023-05-17 14:18:32', '2023-05-17 14:18:32', '19:11'),
-	(21, '2023-05-25', 2, 2, '2023-05-17 14:18:40', '2023-05-17 14:18:40', '22:11'),
-	(22, '2023-05-25', 2, 2, '2023-05-17 14:18:41', '2023-05-17 14:18:41', '22:11'),
-	(23, '2023-05-20', 2, 2, '2023-05-17 15:00:21', '2023-05-17 15:00:21', '22:11'),
-	(24, '2023-05-20', 2, 2, '2023-05-17 15:00:22', '2023-05-17 15:00:22', '22:11'),
-	(25, '2023-05-20', 2, 2, '2023-05-17 15:00:22', '2023-05-17 15:00:22', '22:11'),
-	(26, '2023-05-20', 2, 2, '2023-05-17 15:00:23', '2023-05-17 15:00:23', '22:11'),
-	(27, '2023-05-20', 2, 2, '2023-05-17 15:09:03', '2023-05-17 15:09:03', '12:11'),
-	(28, '2023-05-20', 2, 2, '2023-05-17 15:09:06', '2023-05-17 15:09:06', '11:11'),
-	(29, '2023-05-20', 2, 2, '2023-05-17 15:09:11', '2023-05-17 15:09:11', '15:11'),
-	(30, '2023-05-20', 2, 2, '2023-05-17 15:28:49', '2023-05-17 15:28:49', '08:30 - 09:00'),
-	(31, '2023-05-20', 2, 2, '2023-05-17 15:28:51', '2023-05-17 15:28:51', '08:30 - 09:00'),
-	(32, '2023-05-20', 2, 2, '2023-05-17 15:28:52', '2023-05-17 15:28:52', '08:30 - 09:00'),
-	(33, '2023-05-20', 2, 2, '2023-05-17 15:42:09', '2023-05-17 15:42:09', '15:00 - 15:30'),
-	(34, '2023-05-20', 2, 2, '2023-05-17 15:42:10', '2023-05-17 15:42:10', '15:00 - 15:30'),
-	(35, '2023-05-20', 2, 2, '2023-05-17 17:21:01', '2023-05-17 17:21:01', '16:00 - 16:30'),
-	(36, '2023-05-20', 2, 2, '2023-05-17 22:23:33', '2023-05-17 22:23:33', '16:00 - 16:30'),
-	(37, '2023-05-20', 2, 2, '2023-05-17 22:24:41', '2023-05-17 22:24:41', '16:00 - 16:30'),
-	(38, '2023-05-18', 71, 2, '2023-05-17 22:51:31', '2023-05-17 22:51:31', '10:00 - 10:30'),
-	(39, '2023-05-18', 71, 2, '2023-05-17 22:53:12', '2023-05-17 22:53:12', '09:00 - 09:30');
+	(24, '2023-06-15', 54, 54, '2023-06-10 11:21:35', '2023-06-10 11:21:35', '15:00 - 15:30'),
+	(26, '2023-06-21', 81, 54, '2023-06-11 16:01:42', '2023-06-11 16:01:42', '17:00 - 17:30');
 
 -- Listage de la structure de table sql9616314. avoir
 CREATE TABLE IF NOT EXISTS `avoir` (
@@ -85,61 +48,75 @@ CREATE TABLE IF NOT EXISTS `avoir` (
   KEY `FK2_AvoirPat` (`idPat`),
   CONSTRAINT `FK2_AvoirPat` FOREIGN KEY (`idPat`) REFERENCES `users` (`id`),
   CONSTRAINT `FK__AvoirMed` FOREIGN KEY (`idMed`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table sql9616314.avoir : ~0 rows (environ)
 
--- Listage de la structure de table sql9616314. certificate
-CREATE TABLE IF NOT EXISTS `certificate` (
-  `id` int NOT NULL,
-  `idMed` int NOT NULL,
+-- Listage de la structure de table sql9616314. certificates
+CREATE TABLE IF NOT EXISTS `certificates` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `NameCertificate` varchar(50) NOT NULL,
   `SourceCertificate` varchar(100) NOT NULL,
   `DateCertificate` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_certificate_users` (`idMed`),
-  CONSTRAINT `FK_certificate_users` FOREIGN KEY (`idMed`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table sql9616314.certificate : ~0 rows (environ)
+-- Listage des données de la table sql9616314.certificates : ~1 rows (environ)
+REPLACE INTO `certificates` (`id`, `NameCertificate`, `SourceCertificate`, `DateCertificate`, `createdAt`, `updatedAt`) VALUES
+	(34, 'dddddd', 'ddddddddddd', '2023-06-14', '2023-06-11 15:59:17', '2023-06-11 15:59:17');
 
--- Listage de la structure de table sql9616314. experiance
-CREATE TABLE IF NOT EXISTS `experiance` (
-  `id` int NOT NULL,
-  `idMed` int NOT NULL,
+-- Listage de la structure de table sql9616314. experiances
+CREATE TABLE IF NOT EXISTS `experiances` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `labelExperiance` varchar(255) NOT NULL,
   `descriptionExperiance` varchar(255) NOT NULL,
   `DateStart` date NOT NULL,
   `DateEnd` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK__users` (`idMed`),
-  CONSTRAINT `FK__users` FOREIGN KEY (`idMed`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table sql9616314.experiance : ~0 rows (environ)
+-- Listage des données de la table sql9616314.experiances : ~1 rows (environ)
+REPLACE INTO `experiances` (`id`, `labelExperiance`, `descriptionExperiance`, `DateStart`, `DateEnd`) VALUES
+	(3, 'ddddddd', '888888888881133', '2023-06-22', '2023-06-01');
 
--- Listage de la structure de table sql9616314. message
-CREATE TABLE IF NOT EXISTS `message` (
-  `id` int NOT NULL,
+-- Listage de la structure de table sql9616314. messages
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `idSender` int NOT NULL,
-  `idreciever` int NOT NULL,
+  `idReceiver` int NOT NULL,
   `content` varchar(255) NOT NULL,
   `isSee` int NOT NULL DEFAULT '0',
   `dateMessage` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
+  KEY `FK2_reciever` (`idReceiver`) USING BTREE,
   KEY `FK__sender` (`idSender`),
-  KEY `FK2_reciever` (`idreciever`),
-  CONSTRAINT `FK2_reciever` FOREIGN KEY (`idreciever`) REFERENCES `users` (`id`),
-  CONSTRAINT `FK__sender` FOREIGN KEY (`idSender`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `FK2_reciever` FOREIGN KEY (`idReceiver`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `FK__sender` FOREIGN KEY (`idSender`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table sql9616314.message : ~0 rows (environ)
+-- Listage des données de la table sql9616314.messages : ~11 rows (environ)
+REPLACE INTO `messages` (`id`, `idSender`, `idReceiver`, `content`, `isSee`, `dateMessage`, `createdAt`, `updatedAt`) VALUES
+	(97, 54, 81, 'ggggggggggg', 0, '2023-06-11 12:40:21', '2023-06-11 11:40:21', '2023-06-11 11:40:21'),
+	(98, 81, 54, 'ssss', 0, '2023-06-11 12:42:57', '2023-06-11 11:42:57', '2023-06-11 11:42:57'),
+	(99, 81, 54, 'ssss', 0, '2023-06-11 12:43:19', '2023-06-11 11:43:19', '2023-06-11 11:43:19'),
+	(100, 54, 81, 'http://localhost:8000/user_profile.png', 0, '2023-06-11 12:43:23', '2023-06-11 11:43:23', '2023-06-11 11:43:23'),
+	(101, 81, 54, 'eeeee', 0, '2023-06-11 12:43:27', '2023-06-11 11:43:27', '2023-06-11 11:43:27'),
+	(102, 81, 54, 'wwwwwwww', 0, '2023-06-11 12:43:35', '2023-06-11 11:43:35', '2023-06-11 11:43:35'),
+	(103, 54, 81, 'ddddddddd', 0, '2023-06-11 12:43:38', '2023-06-11 11:43:38', '2023-06-11 11:43:38'),
+	(104, 54, 81, 'ddddddddd', 0, '2023-06-11 12:43:40', '2023-06-11 11:43:40', '2023-06-11 11:43:40'),
+	(105, 54, 81, 'cc', 0, '2023-06-11 12:43:45', '2023-06-11 11:43:45', '2023-06-11 11:43:45'),
+	(106, 81, 54, 'ccc', 0, '2023-06-11 12:43:50', '2023-06-11 11:43:50', '2023-06-11 11:43:50'),
+	(107, 81, 83, 'dddddd', 0, '2023-06-11 17:00:34', '2023-06-11 16:00:34', '2023-06-11 16:00:34');
 
 -- Listage de la structure de table sql9616314. test
 CREATE TABLE IF NOT EXISTS `test` (
   `firstname` varchar(20) DEFAULT NULL,
   `lastname` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Listage des données de la table sql9616314.test : ~0 rows (environ)
 
@@ -147,10 +124,10 @@ CREATE TABLE IF NOT EXISTS `test` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `firstName` varchar(255) NOT NULL,
-  `lastName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `lastName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `telephone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `telephone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
   `cni` varchar(15) DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -159,19 +136,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `cni` (`cni`)
-) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table sql9616314.users : ~9 rows (environ)
+-- Listage des données de la table sql9616314.users : ~3 rows (environ)
 REPLACE INTO `users` (`id`, `firstName`, `lastName`, `email`, `password`, `telephone`, `address`, `cni`, `createdAt`, `updatedAt`, `role`) VALUES
-	(1, 'John', 'Doe', 'johndoe@example.com', 'sffffffffffs', '1234567890', NULL, NULL, '2023-05-11 17:45:00', '2023-05-11 17:45:00', 3),
-	(2, 'soufiane', 'chajjaoui', 'schajjaoui2003@gmail.com', '$2b$10$omsLFfOEDXPkgaLegMveUupPKhkUcb5c7F2/BNQLNp9KdnxXZHBEy', '0607025329', 'rue 19 okba bnou nafia safi  42', 'dd233864ss', '2023-05-15 05:34:45', '2023-05-15 05:34:45', 3),
-	(8, 'John', 'Doe', 'johndorrre@example.com', 'sffffffffffs', '1234567890', NULL, NULL, '2023-05-11 19:03:49', '2023-05-11 19:03:49', 3),
-	(33, '12222', '2222', 'johndoe@sccc.com', 'sssssssssss', '1234567890', NULL, '1222222222', '2023-05-12 00:06:37', '2023-05-12 00:06:37', 3),
-	(45, '12222', '2222', 'johndoe@exemple.com', 'sssssssssss', '1234567890', NULL, '4444444444', '2023-05-12 00:58:47', '2023-05-12 00:58:47', 3),
-	(55, '12222', '2222', 'johndoe@exempe.com', 'sssssssssss', '1234567890', NULL, '12222229992', '2023-05-12 03:12:50', '2023-05-12 03:12:50', 3),
-	(65, '12222', '2222', 'johndoe@exemhpe.com', '$2b$10$dRTr8NQTofK9zudeYn8cqO8vR/.Fw3A/xviKkfho0mxH2UBbaD0.m', '1234567890', NULL, '122222829992', '2023-05-12 03:25:48', '2023-05-12 03:25:48', 3),
-	(70, '12222', '2222', 'johndoe@exee.com', '$2b$10$wnKrX8VkK5VMrnTHovdHoe0T3iFX17Sf4U9RER.5Ibj2Ex2Rf78uO', '1234567890', NULL, '1222228299092', '2023-05-12 03:53:50', '2023-05-12 03:53:50', 3),
-	(71, 'soufiane', 'chajjaoui', 'schajjaoui@gmail.com', '$2b$10$3MCUv5dSBuiJsSrYA/t3z.DU3aRTI/PjhQp3H1FLTy93F6AGFM8S2', '0607025329', 'rue 19 okba bnou nafia safi  42', 'fffffff', '2023-05-16 18:02:48', '2023-05-16 18:02:48', 3);
+	(54, 'soufianeqqqq', 'chajjaoui', 'schajjaoui22@gmail.com', '$2b$10$YiCasJS4FB2JzqrOIl2ZRuwgSflOEZl7bZHVQF/BLdPQ7z4MPxtaO', '0607025329', 'rue 19 okba bnou nafia safi  42', 'dd233864', '2023-06-03 18:30:07', '2023-06-10 11:38:07', 1),
+	(81, 'soufiane', 'chajjaoui', 'schajjaoui@gmail.com', '$2b$10$NZsuTSxO07v2FxNF/.t/y.TbXx1PhhjtJACfnSjk1gFXq.4b7sX8q', '0607025329', 'rue 19 okba bnou nafia safi  42', 'dd233864a', '2023-06-11 00:12:28', '2023-06-11 11:42:02', 3),
+	(83, 'soufiane', 'chajjaoui', 'schajjaouwqwi@gmail.com', '$2b$10$NpdU1Sw0..EGApFOebMCDOYYvnbewSw5CWYQE21LLW5.6fqXz3bYO', '0607025323', 'rue 19 okba bnou nafia safi  42', 'dd233864w', '2023-06-11 15:50:32', '2023-06-11 15:50:32', 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
