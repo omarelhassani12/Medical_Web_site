@@ -33,11 +33,11 @@ const getDisc = async (req, res) => {
   try {
     const  idsender   = req.params.idsender ; 
     const idreceiver = req.params.idreceiver ;
-    
+    const ids =[idsender , idreceiver] ;
     const messages = await Message.findAll({
       where: {
-        idSender: idsender,
-        idReceiver: idreceiver
+        idSender: ids,
+        idReceiver: ids
       },
       order: [['dateMessage', 'ASC']] // Order the messages by the dateMessage column in descending order
     });

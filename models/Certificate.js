@@ -8,10 +8,6 @@ Certificate = SqDb.define('certificate' , {
         primaryKey : true,
         autoIncrement : true
     },
-    idMed : {
-        type : DataTypes.INTEGER,
-        allowNull : false
-    },
     NameCertificate : {
         type : DataTypes.STRING,
         allowNull : false
@@ -24,16 +20,7 @@ Certificate = SqDb.define('certificate' , {
         type : DataTypes.DATE,
         allowNull : false
     },
-    createdAt: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW, // set the default value to the current time
-        allowNull: false,
-      },
-    updatedAt: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW,
-      },
+
 
 })
 

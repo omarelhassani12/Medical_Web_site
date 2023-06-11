@@ -219,13 +219,84 @@ const getPatients =async (req, res) => {
 const getAllCertificates = async (req, res) => {
   try {
     const certificates = await Certificate.findAll();
-    return res.status(200).json(certificates);
+    res.status(200).render('Dashboard/Certificat', {Certificats : certificates})
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
 
+const CreateCertficate = async ( req ,res ) =>{
+
+    try {
+      const cert =  await Certificate.create({
+        NameCertificate : req.body.Deplome ,
+        SourceCertificate : req.body.source ,
+        DateCertificate : req.body.dateCer
+      })
+
+      res.status(200).json({success : true}) ;
+    } catch (error) {
+      res.status(400).json({success : false}) ;
+    }
+}
+
+
+const DeleteDeploma = async ( req, res ) => {
+    console.log(req.params.id) ;
+  try {
+        const deplomaDeleted = await Certificate.destroy({
+      where : { id : req.params.id}
+    })
+    res.status(200).json({success : true})
+  } catch (error) {
+    res.status(400).json({success : false})
+
+  }
+}
+
+const getAllExp = async (req, res) => {
+
+  try {
+    const Exps = await Experiance.findAll() ;
+    console.log(Exps.length)
+    res.render('Dashboard/Experiances', {
+      exps : Exps
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const AddExp = async (req, res) => {
+  console.log(req.body);
+  try {
+    const exp = await Experiance.create({
+       labelExperiance : req.body.label ,
+       descriptionExperiance :req.body.description ,
+       DateStart : req.body.dateStart ,
+       DateEnd : req.body.dateEnd
+    })
+    res.status(200).json({success : true})
+  } catch (error) {
+    console.log(error)
+    res.status(400).json({success : false})
+  }
+}
  
+const DeleteExp = async (req, res) => {
+    console.log(req.params.id , 'deleteExp')
+    try {
+      await Experiance.destroy({
+        where : {
+          id : req.params.id
+        }
+      })
+      res.status(200).json({success : true});
+    } catch (error) {
+      res.status(400).json({success : false})
+    }
+
+}
 
 
 // Next methods not implemented yet please implement them in client-side
@@ -307,15 +378,20 @@ module.exports = {
   index,
   deleteApp,
   getDoctors,
+  AddExp,
+  CreateCertficate,
   getAllCertificates,
   addDoctor,
   deleteUser,
+  getAllExp ,
   DeleteManyPatients,
   updateDoctor,
+  DeleteExp,
   getPatients,
   getSecretaires,
   deleteSecretaire,
   updateSecretaire,
+  DeleteDeploma,
   addSecretaire
 };
  

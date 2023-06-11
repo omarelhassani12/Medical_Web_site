@@ -6,14 +6,10 @@ const PatinetController = require('../controllers/PatinetController');
 const Appointment = require('../models/Appointment');
 const Sequelize = require('sequelize');
 const DoctorController = require('../controllers/DoctorController');
-const calender = require('../public/calender.json');
 const User = require('../models/User');
 const { Op } = require('sequelize');
 const ChatController = require('../controllers/ChatController');
-RouteWeb.get('/', async( req, res)=> {
-   
-       res.render('index' , {calendar : calender});
-});
+RouteWeb.get('/', UserController.index);
 RouteWeb.get('*' , Middleware.auth );
 
 RouteWeb.post('/register', UserController.RegisterUser);
@@ -73,11 +69,11 @@ RouteWeb.post('/Chat/sendMessage' , ChatController.storeMessage);
 
 //////////////////////////////// Admin routes //////////////////////////////////
 
-RouteWeb.get('/dashboard' , Middleware.isAdmin , DoctorController.index )
+RouteWeb.get('/dashboard' , DoctorController.index )
 
-RouteWeb.delete('/appointments/:id/delete' ,  Middleware.isAdmin  , DoctorController.deleteApp  );
+RouteWeb.delete('/appointments/:id/delete' , DoctorController.deleteApp  );
 
-RouteWeb.get('/Doctors' ,  Middleware.isAdmin  , DoctorController.getDoctors)
+RouteWeb.get('/Doctors'  , DoctorController.getDoctors)
 
 RouteWeb.post('/admin-add-doctor',    DoctorController.addDoctor);
 
@@ -91,5 +87,14 @@ RouteWeb.get('/Patients' , DoctorController.getPatients);
 
 RouteWeb.get('/Certificates' , DoctorController.getAllCertificates)
 
+RouteWeb.post('/API/AddCertficate' , DoctorController.CreateCertficate)
+
+RouteWeb.delete('/delete/Certficate/:id' , DoctorController.DeleteDeploma) ;
+
+RouteWeb.get('/Experiances' , DoctorController.getAllExp );
+
+RouteWeb.post('/API/AddExper' , DoctorController.AddExp) ;
+
+RouteWeb.delete('/DELETE/experiences/:id' , DoctorController.DeleteExp)
 
 module.exports = RouteWeb

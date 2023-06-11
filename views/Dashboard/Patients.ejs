@@ -81,7 +81,6 @@
                             <th>Telephone</th>
                             <th>Address</th>
                             <th>Email</th>
-                            <th>Actions</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -96,9 +95,6 @@
                             <td><%- patient.telephone %></td>
                             <td><%- patient.address %></td>
                             <td><%- patient.email %></td>
-                            <td class="text-center">
-                              <span class="btn btn-sm btn-danger btn-floating" onclick="removePatient('<%= patient.id %>')"><i class="fas fa-trash-alt"></i></span>
-                            </td>
                           </tr>
                           <% } }) %>
                         </tbody>

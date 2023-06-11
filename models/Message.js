@@ -26,7 +26,11 @@ const Message = sqDB.define('Message', {
   dateMessage: {
     type: DataTypes.DATE,
     allowNull: false,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW ,
+    // get() {
+    //   const date = this.getDataValue('dateMessage');
+    //   return date.toLocaleString(); // Format the date as a human-readable string
+    // }
   },
   createdAt: {
     type: DataTypes.DATE,

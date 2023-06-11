@@ -73,3 +73,6 @@ SELECT COUNT(*) FROM appointments  where DateApp=NOW()sql9616314usersusersusersu
 
 ALTER TABLE messages
 ALTER COLUMN isSee SET DEFAULT false;
+
+ALTER TABLE employees
+DROP CONSTRAINT pk_employees;

@@ -209,9 +209,8 @@
                       <th>Actions</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="doctorTableBody">
                     <!-- Loop through doctors data and generate rows -->
-
                     <% doctors.forEach(doctor => { 
                       if (doctor.id !== user.id) { %>
                     <tr id="<%= doctor.id %>">

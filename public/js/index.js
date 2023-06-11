@@ -19,7 +19,8 @@ $(document).ready(function () {
 
     $("#example1").on("click", ".delete-appointment", function() {
         var appointmentId = $(this).data("doc");
-    
+        var row = $(this).closest("tr"); // Get the closest row element
+
         console.log(appointmentId);
         // Perform AJAX request for edit appointment      
 
@@ -36,7 +37,7 @@ $(document).ready(function () {
                   timeout: 4000,
                   onClosed: function() {
                     // Refresh the page or perform any other action
-                    location.reload();
+                    row.remove();
                   }
                 });    
                 }

@@ -2,6 +2,7 @@ const { Sequelize , DataTypes} = require("sequelize");
 const sqDB = require("../Config/Config") ;
 const Appointment = require("./Appointment");
 const bcrypt = require('bcrypt') ; 
+const Message = require("./Message");
 const User = sqDB.define('users', {
     id: {
       type: DataTypes.INTEGER,
@@ -81,6 +82,20 @@ const User = sqDB.define('users', {
      onDelete: 'CASCADE', // Set onDelete option to CASCADE
   });
   Appointment.belongsTo(User, { foreignKey: 'idPat' });
+
+  User.hasMany(Message, {
+    foreignKey: 'idSender',
+    onDelete: 'CASCADE',
+  });
+  Message.belongsTo(User, { foreignKey: 'idSender' });
+
+  User.hasMany(Message, {
+    foreignKey: 'idReceiver',
+    onDelete: 'CASCADE',
+  });
+  Message.belongsTo(User, { foreignKey: 'idReceiver' });
+
+  
 
 
 // Create a hook to encrypt the password before saving to the database

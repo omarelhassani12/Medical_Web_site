@@ -2,15 +2,11 @@ const { DataTypes } = require('sequelize');
 const SqDb = require('../Config/Config');
 
 
-module.exports.Experiance = SqDb.define('Experiance' , {
+const Experiance = SqDb.define('experiances' , {
     id : {
         type : DataTypes.INTEGER,
         primaryKey : true,
         autoIncrement : true
-    },
-    idMed : {
-        type : DataTypes.INTEGER,
-        allowNull : false
     },
     labelExperiance : {
         type : DataTypes.STRING,
@@ -28,4 +24,8 @@ module.exports.Experiance = SqDb.define('Experiance' , {
         type : DataTypes.DATE,
         allowNull : false
     }
-})
+} ,{
+    timestamps: false, // Disable timestamps
+} )
+
+module.exports = Experiance

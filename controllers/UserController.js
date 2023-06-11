@@ -2,8 +2,15 @@ const connectSqDB = require('../Config/DataBase');
 const User = require('../models/User');
 const Sequelize = require('sequelize');
 const jwt = require('jsonwebtoken');
+const calender = require('../public/calender.json');
+const Certificate = require('../models/Certificate');
+const Experiance = require('../models/Experiance');
 
-
+const index = async( req, res)=> {
+   const certificates = await Certificate.findAll();
+   const experiances =  await Experiance.findAll();
+  res.render('index' , {calendar : calender , Certificats : certificates , Exps : experiances});
+}
 const  handeller  = (error)=>{
 
           // return e.message.replace('Validation ' , '' )  ;
@@ -40,7 +47,7 @@ const  handeller  = (error)=>{
                 break;
               case 'isEmail':
                 if (error.path === 'email') {
-                  err.email = 'Your Email Should be in the form of example@example.com';
+                  err.email = 'Your Email Has already Registered';
                 }
                 break;
                 
@@ -130,4 +137,4 @@ User.authenticate(email, password, function(err, user) {
 }
 
 
-module.exports = {RegisterUser , handeller , LoginUser};
+module.exports = {RegisterUser , handeller , index , LoginUser};

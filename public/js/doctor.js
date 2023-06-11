@@ -6,24 +6,15 @@ form.addEventListener('submit', async function(event) {
   event.preventDefault(); // Prevent form submission
 
   const myModal = document.getElementById('Ajouter');
-  const firstName = document.getElementById('input-prenom').value;
-  const lastName = document.getElementById('input-name').value;
-  const tele = document.getElementById('input-tele').value;
-  const cni = document.getElementById('input-cni').value;
-  const email = document.getElementById('input-email').value;
-  const address = document.getElementById('input-address').value;
-  const password = document.getElementById('input-Password').value;
+  
+  const formData = new FormData(form);
 
-  const doctorData = {
-    firstName: firstName,
-    lastName: lastName,
-    tele: tele,
-    cni: cni,
-    email: email,
-    address: address,
-    password: password
-  };
-
+  // Convert FormData to JSON object
+  const jsonObject = {};
+  for (const [key, value] of formData.entries()) {
+    jsonObject[key] = value;
+  }
+  
   try {
     // Send a POST request to the server
     const response = await fetch('../admin-add-doctor', {
@@ -31,14 +22,15 @@ form.addEventListener('submit', async function(event) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(doctorData)
+      body: JSON.stringify(jsonObject)
     });
-        const res = await response.json();
+    
+    const res = await response.json();
     if (response.status === 200) {
-        const modalInstance = mdb.Modal.getInstance(myModal);
-        if (modalInstance) {
-          modalInstance.hide(); // Hide the modal using MDB's hide method
-        } 
+      const modalInstance = mdb.Modal.getInstance(myModal);
+      if (modalInstance) {
+        modalInstance.hide(); // Hide the modal using MDB's hide method
+      } 
       // Display success message using izitoast
       iziToast.success({
         title: 'Success',
@@ -63,6 +55,8 @@ form.addEventListener('submit', async function(event) {
     console.error('Error:', error);
   }
 });
+
+
 
 
 // remove Doctor 

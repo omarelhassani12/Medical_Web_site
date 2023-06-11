@@ -19,12 +19,16 @@ async function getDisc(args) {
             console.log(response)
             if (response.length > 0) {
                response.forEach(element => {
-                console.log(element.idSender , args[0]);
-                if (element.idReceiver != parseInt(args[0])) {
-                    var messageUI = "<div class='d-flex flex-row justify-content-start'><img src='user_profile.png'alt='avatar 1' style='width: 45px; height: 100%;'><div><p class='small p-2 ms-3 mb-1 rounded-3' style='background-color: #f5f6f7;'>"+ element.content +"<p class='small ms-3 mb-3 rounded-3 text-muted float-end'>" +element.dateMessage+ "</p></div></div>"
+                
+                    const date = new Date(element.dateMessage);
+                    const localDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000));
+                    const dateHumain = localDate.toLocaleString();
+
+                    if (element.idReceiver == parseInt(args[0])) {
+                    var messageUI = "<div class='d-flex flex-row justify-content-end'><div><p class='small p-2 me-3 mb-1 text-white rounded-3 bg-primary'>"+ element.content +"</p><p class='small me-3 mb-3 rounded-3 text-muted'>"+ dateHumain +"</p></div><img src='user_profile.png'alt='avatar 1' style='width: 45px; height: 100%;'></div>"
                     listMessages.innerHTML += messageUI;
                 }else if(element.idSender == parseInt(args[0])) {
-                    var messageUI = "<div class='d-flex flex-row justify-content-end'><div><p class='small p-2 me-3 mb-1 text-white rounded-3 bg-primary'>"+ element.content +"</p><p class='small me-3 mb-3 rounded-3 text-muted'>"+ element.dateMessage +"</p></div><img src='user_profile.png'alt='avatar 1' style='width: 45px; height: 100%;'></div>"
+                    var messageUI = "<div class='d-flex flex-row justify-content-start'><img src='user_profile.png'alt='avatar 1' style='width: 45px; height: 100%;'><div><p class='small p-2 ms-3 mb-1 rounded-3' style='background-color: #f5f6f7;'>"+ element.content +"<p class='small ms-3 mb-3 rounded-3 text-muted float-end'>" +dateHumain+ "</p></div></div>"
                     listMessages.innerHTML += messageUI;
                 }
 
