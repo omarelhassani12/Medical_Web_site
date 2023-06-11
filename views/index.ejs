@@ -15,6 +15,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -28,7 +29,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
   <!-- Add Bootstrap JavaScript -->
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <!-- for the confirmation form -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -36,8 +38,7 @@
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="./static/css/modelformstyle.css" rel="stylesheet">
   <link href="./static/css/googlemapstyle.css" rel="stylesheet">
-
-
+  <script src="https://use.fontawesome.com/bb9e558d83.js"></script>
 <style>
 
 
@@ -116,12 +117,12 @@ margin-top: -.75rem;
       <% if (user) { %>
         <% if (!user.isMakeApp) { %>
           <a href="#" class="appointment-btn scrollto" id="makeApp"><span class="d-none d-md-inline">Make an</span> Appointment</a>      
-           <a href="#" data-doc="<%= user.id %>" id="idUser" class="nav-link scrollto"> <b><%= user.firstName+ ' ' + user.lastName %></b></a>
-          <a href="/logout" id="logout" class="appointment-btn">Log Out</a>
+           <a  data-doc="<%= user.id %>" id="idUser" class="nav-link scrollto"> <b><%= user.firstName+ ' ' + user.lastName %></b></a>
+          <a href="/logout" id="logout" class="btn btn-info">Log Out</a>
         <% } else { %>
           <a href="/chat" class="ps-4" style="padding-right: 10px;"><i class="fa fa-commenting-o fa-2x"></i></a>
-          <a href="#" data-doc="<%= user.id %>" id="idUser" class="nav-link scrollto"> <b><%= user.firstName+ ' ' + user.lastName %></b></a>
-          <a href="/logout" id="logout" class="appointment-btn">Log Out</a>
+          <a data-doc="<%= user.id %>" id="idUser" class="nav-link scrollto"> <b><%= user.firstName+ ' ' + user.lastName %></b></a>
+          <a href="/logout" id="logout" class="btn btn-info" >Log Out</a>
         <% } %>
       <% } else { %>
         <a href="/login" class="btn btn-secondary">Log in</a>
@@ -656,10 +657,8 @@ margin-top: -.75rem;
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="https://use.fontawesome.com/bb9e558d83.js"></script>
-   <!-- Template Main JS File -->
+
+  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="./static/js/modelformstyle.js"></script>
 
@@ -765,7 +764,7 @@ margin-top: -.75rem;
             $('#makeApp').hide();
             console.log(response.result);
             showSuccessModal();
-           }
+          }
         }
       })
     });

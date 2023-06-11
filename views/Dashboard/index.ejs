@@ -147,18 +147,18 @@
                 <table id="example1" class="table table-bordered table-striped ">
                   <thead>
                     <tr>
+                      <th>Patient</th>
                       <th>Date</th>
                       <th>Hour</th>
-                      <th>Patient</th>
                       <th>Actions</th> <!-- New column for actions -->
                     </tr>
                   </thead>
                   <tbody>
                     <% appointments.forEach(appointment => { %>
                     <tr> 
+                      <td><%- appointment.user.firstName %> <%- appointment.user.lastName %></td>
                       <td><%- appointment.DateApp %></td>
                       <td><%- appointment.HourApp %></td>
-                      <td><%- appointment.user.firstName %> <%- appointment.user.lastName %></td>
                       <td>
                           <a data-doc="<%= appointment.id %>" role="button" class="delete-appointment" style="display: flex; align-items: center; justify-content: center;" >
                             <span class="btn btn-sm btn-danger btn-floating"><i class="fas fa-trash-alt"></i></span>
