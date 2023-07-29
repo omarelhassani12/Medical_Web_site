@@ -58,7 +58,7 @@ module.exports.createAppointment = async (req, res) => {
       DateApp: formattedDate,
       HourApp: formattedTime,
       idPat,
-      idDoc: 103, // You may set the default doctor ID as needed
+      idDoc: 93, // You may set the default doctor ID as needed
     });
     
     console.log(`DateApp: ${appointment.DateApp}`);

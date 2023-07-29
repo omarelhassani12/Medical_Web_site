@@ -53,7 +53,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-4 col-6">
+          <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
@@ -67,26 +67,28 @@
             </div>
           </div>
           <!-- ./col -->
-            <!-- <div class="small-box bg-info">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
               <div class="inner">
                 <h3><%= userCounts.find(obj => obj.role === 2).count %></h3>
                 <p>Secrétaires</p>
               </div>
               <div class="icon">
-                <i class="fas fa-user-md"></i>
+                <i class="fas fa-user-secret"></i>
               </div>
               <a href="#" class="small-box-footer">Plus d'infos <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div> -->
+          </div>
           <!-- ./col -->
-          <div class="col-lg-4 col-6">
+          <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>     
-                  
+                <h3>
                   <% const patientsCount = userCounts.find(obj => obj.role === 3); %>
-                  <%= patientsCount && patientsCount.count ? patientsCount.count : 0 %></h3>
+                  <%= patientsCount && patientsCount.count ? patientsCount.count : 0 %>
+                </h3>
                 <p>Patients</p>
               </div>
               <div class="icon">
@@ -96,13 +98,12 @@
             </div>
           </div>
           <!-- ./col -->
-          <!-- ./col -->
-          <div class="col-lg-4 col-6">
+          <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
-              <div class="inner"style="color: white;">
-                 <h3 id="appointmentCount" >Chargement...</h3>
-
+              <div class="inner" style="color: white;">
+                <h3 id="appointmentCount">Chargement...</h3>
+        
                 <p>Rendez-vous</p>
               </div>
               <div class="icon">
@@ -114,6 +115,7 @@
           <!-- ./col -->
         </div>
         
+        
         <!-- /.row (main row) -->
         <div class="row">
           <div class="col-12">
@@ -123,7 +125,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped ">
+                <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
                       <th>Patient</th>
@@ -133,21 +135,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% appointments.slice(-15).forEach(appointment => { %>
-                    <tr> 
-                      <td><%- appointment.user.firstName %> <%- appointment.user.lastName %></td>
+                    <% appointments.forEach(appointment => { %>
+                    <tr>
+                      <td><%- appointment.User.firstName %> <%- appointment.User.lastName %></td>
                       <td><%- appointment.DateApp %></td>
                       <td><%- appointment.HourApp %></td>
                       <td>
-                          <a data-doc="<%= appointment.id %>" role="button" class="delete-appointment" style="display: flex; align-items: center; justify-content: center;" >
-                            <span class="btn btn-sm btn-danger btn-floating"><i class="fas fa-trash-alt"></i></span>
-                          </a>
-                       </td>
-                      
+                        <a data-doc="<%= appointment.id %>" role="button" class="delete-appointment" style="display: flex; align-items: center; justify-content: center;">
+                          <span class="btn btn-sm btn-danger btn-floating"><i class="fas fa-trash-alt"></i></span>
+                        </a>
+                      </td>
                     </tr>
                     <% }) %>
                   </tbody>
                 </table>
+                
                 
                 
               </div>

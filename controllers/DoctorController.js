@@ -8,6 +8,49 @@ const { handeller } = require('./UserController');
 const bcrypt = require('bcrypt') ; 
 const sqDB = require("../Config/Config") ;
 
+// const index = (req, res) => {
+//   // Perform the join and fetch the appointments along with the associated patients (users with role 3)
+//   Appointment.findAll({
+//     include: [
+//       {
+//         model: User,
+//         attributes: ['firstName', 'lastName', 'telephone'],
+//         where: {
+//           role: 3 // Filter users with role 3
+//         }
+//       }
+//     ],
+//     attributes: ['id', 'DateApp', 'HourApp'],
+//     order: [['DateApp', 'ASC']],
+//     // raw: true // Return raw data
+//   })
+//     .then(appointments => {
+//       // Count the number of users by role
+//       return User.findAll({
+//         attributes: ['role', [Sequelize.fn('COUNT', Sequelize.col('role')), 'count']],
+//         group: ['role'],
+//         raw: true // Return raw data
+//       })
+//         .then(counts => {
+//           // Handle the retrieved appointments and user counts
+//           res.render('Dashboard/index', {
+//             appointments: appointments,
+//             userCounts: counts
+//           });
+//         })
+        
+//         .catch(error => {
+//           // Handle any errors that occur during the count
+//           console.error('Error counting users:', error);
+//         });
+        
+//     })
+//     .catch(error => {
+//       // Handle any errors that occur during the retrieval of appointments
+//       console.error('Error retrieving appointments:', error);
+//     });
+// };
+
 const index = (req, res) => {
   // Perform the join and fetch the appointments along with the associated patients (users with role 3)
   Appointment.findAll({
@@ -21,13 +64,15 @@ const index = (req, res) => {
       }
     ],
     attributes: ['id', 'DateApp', 'HourApp'],
-    order: [['DateApp', 'ASC']],
-    // raw: true // Return raw data
+    order: [['DateApp', 'ASC']]
   })
     .then(appointments => {
       // Count the number of users by role
       return User.findAll({
-        attributes: ['role', [Sequelize.fn('COUNT', Sequelize.col('role')), 'count']],
+        attributes: [
+          'role',
+          [Sequelize.fn('COUNT', Sequelize.col('role')), 'count']
+        ],
         group: ['role'],
         raw: true // Return raw data
       })
@@ -41,11 +86,13 @@ const index = (req, res) => {
         .catch(error => {
           // Handle any errors that occur during the count
           console.error('Error counting users:', error);
+          res.status(500).send('Internal server error');
         });
     })
     .catch(error => {
       // Handle any errors that occur during the retrieval of appointments
       console.error('Error retrieving appointments:', error);
+      res.status(500).send('Internal server error');
     });
 };
 
