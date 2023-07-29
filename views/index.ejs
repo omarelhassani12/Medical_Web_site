@@ -1,58 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang='fr'>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <meta charset='utf-8'>
+  <meta content='width=device-width, initial-scale=1.0' name='viewport'>
   <title>Dr.HANAA DRAA</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
+  <meta content='' name='description'>
+  <meta content='' name='keywords'>
   <!-- Favicons -->
-  <!-- <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
-
+  <!-- <link href='assets/img/favicon.png' rel='icon'>
+  <link href='assets/img/apple-touch-icon.png' rel='apple-touch-icon'> -->
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i' rel='stylesheet'>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+  <link href='assets/vendor/fontawesome-free/css/all.min.css' rel='stylesheet'>
+  <link href='assets/vendor/animate.css/animate.min.css' rel='stylesheet'>
+  <link href='assets/vendor/aos/aos.css' rel='stylesheet'>
+  <link href='assets/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='assets/vendor/bootstrap-icons/bootstrap-icons.css' rel='stylesheet'>
+  <link href='assets/vendor/boxicons/css/boxicons.min.css' rel='stylesheet'>
+  <link href='assets/vendor/glightbox/css/glightbox.min.css' rel='stylesheet'>
+  <link href='assets/vendor/swiper/swiper-bundle.min.css' rel='stylesheet'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
   <!-- Add Bootstrap JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
   <!-- for the confirmation form -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css'>
+  <script src='https://cdn.jsdelivr.net/npm/flatpickr'></script>
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link href="./static/css/modelformstyle.css" rel="stylesheet">
-  <link href="./static/css/googlemapstyle.css" rel="stylesheet">
-  <script src="https://use.fontawesome.com/bb9e558d83.js"></script>
+  <link href='assets/css/style.css' rel='stylesheet'>
+  <link href='./static/css/modelformstyle.css' rel='stylesheet'>
+  <link href='./static/css/googlemapstyle.css' rel='stylesheet'>
+  <script src='https://use.fontawesome.com/bb9e558d83.js'></script>
 <style>
+.modal {
+z-index: 9999;
+}
 
-
-
-
-
-
-  .modal {
-    z-index: 9999;
-  }
-
-
-
-  #chat3 .form-control {
+#chat3 .form-control {
 border-color: transparent;
 }
 
@@ -69,179 +56,168 @@ margin-left: 2.9rem;
 margin-top: -.75rem;
 }
 
-
 .disabled-option {
-  text-decoration: line-through;
-    color: rgba(96, 110, 100, 0.763); 
-    background-color: rgb(72, 42, 42);/* Adjust the color as needed */
+text-decoration: line-through;
+color: rgba(96, 110, 100, 0.763);
+background-color: rgb(72, 42, 42);/* Adjust the color as needed */
 }
 </style>
+
 </head>
+  <body>
+    <!-- ======= Top Bar ======= -->
+    <div id='topbar' class='d-flex align-items-center fixed-top'>
+      <div class='container d-flex align-items-center justify-content-center justify-content-md-between'>
+        <!-- <div class='align-items-center d-none d-md-flex'>
+          <i class='bi bi-clock'></i> Lundi - Vendredi, de 8h à 18h
+        </div> -->
 
-<body>
-
-  <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-flex align-items-center fixed-top">
-    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
-      <div class="align-items-center d-none d-md-flex">
-        <i class="bi bi-clock"></i> Monday - Friday, 8AM to 6PM
-      </div>
-      
-      <div class="d-flex align-items-center">
-        <i class="bi bi-phone"></i> Call us now +1 5589 55488 55
-      </div>
+    <div class='d-flex align-items-center'>
+      <i class='bi bi-phone'></i> Appelez-nous maintenant +212 669-918003
     </div>
   </div>
+    </div>
+    <!-- ======= Header ======= -->
+    <header id='header' class='fixed-top'>
+      <div class='container d-flex align-items-center justify-content-between'>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
+    <!-- <a href='index.html' class='logo me-auto'><img src='assets/img/logo.png' alt=''></a> -->
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <img src='favicon.png' alt='logo' width='40' height='50'>
 
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a> -->
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <img src="favicon.png" alt="logo" width="40" height="50">
+    <nav id='navbar' class='navbar order-last order-lg-0'>
+      <ul>
+        <li><a class='nav-link scrollto ' href='#hero'>Accueil</a></li>
+        <li><a class='nav-link scrollto' href='#about'>À propos</a></li>
+        <li><a class='nav-link scrollto' href='#profile'>Profil du docteur</a></li>
+        <li><a class='nav-link scrollto' href='#services'>Services</a></li>
+        <li><a class='nav-link scrollto' href='#contact'>Contact</a></li>
+      </ul>
+      <i class='bi bi-list mobile-nav-toggle'></i>
+    </nav>
+    <!-- .navbar -->
+    
 
-      <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
-          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#profile">Doctor Profile</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-      <!-- .navbar -->
-      
-
-      <% if (user) { %>
-        <% if (!user.isMakeApp) { %>
-          <a href="#" class="appointment-btn scrollto" id="makeApp"><span class="d-none d-md-inline">Make an</span> Appointment</a>      
-           <a  data-doc="<%= user.id %>" id="idUser" class="nav-link scrollto"> <b><%= user.firstName+ ' ' + user.lastName %></b></a>
-          <a href="/logout" id="logout" class="btn btn-info">Log Out</a>
-        <% } else { %>
-          <a href="/chat" class="ps-4" style="padding-right: 10px;"><i class="fa fa-commenting-o fa-2x"></i></a>
-          <a data-doc="<%= user.id %>" id="idUser" class="nav-link scrollto"> <b><%= user.firstName+ ' ' + user.lastName %></b></a>
-          <a href="/logout" id="logout" class="btn btn-info" >Log Out</a>
-        <% } %>
-      <% } else { %>
-        <a href="/login" class="btn btn-secondary">Log in</a>
-      <% } %>
-      
-      <div id="successModal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Success!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <strong>Appointment successfully booked.</strong>
-            </div>
+    <% if (user) { %>
+      <% //if (!user.isMakeApp) { %>
+        <a href='/chat' class='appointment-btn scrollto' id='makeApp'><span class='d-none d-md-inline'>Prendre un</span> rendez-vous</a>      
+        <a href='/chat' class='ps-4' style='padding-right: 10px;'><i class='fa fa-commenting-o fa-2x'></i></a>
+        <a data-doc='<%= user.id %>' id='idUser' class='nav-link scrollto'> <b><%= user.firstName + ' ' + user.id %></b></a>
+        <a href='/logout' id='logout' class='btn btn-info' >Se déconnecter</a>
+    <% //} else { %>
+        <!-- <a href='/chat' class='ps-4' style='padding-right: 10px;'><i class='fa fa-commenting-o fa-2x'></i></a>
+        <a data-doc='<%= user.id %>' id='idUser' class='nav-link scrollto'> <b><%= user.firstName+ ' ' + user.lastName %></b></a>
+        <a href='/logout' id='logout' class='btn btn-info' >Se déconnecter</a> -->
+      <%// } %>
+    <% } else { %>
+      <a href='/login' class='btn btn-secondary'>Se connecter</a>
+    <% } %>
+    
+    <div id='successModal' class='modal fade' tabindex='-1' role='dialog'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title'>Succès !</h5>
+            <button type='button' class='close' data-dismiss='modal' aria-label='Fermer'>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>
+          <div class='modal-body'>
+            <strong>Rendez-vous réservé avec succès.</strong>
           </div>
         </div>
       </div>
-      
- 
-        <!-- offcanvas -->
-       
-      <!-- endcanvas -->
-
-
-
+    </div>
         <!-- Modal -->
-        
-      <div id="signin-modal"  class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Take Your Appointment</h2>
-          <form id="login-form">
-            <div class="form-group pt-3">
-              
-              <label for="myDateInput">Choose a Date for your appointment</label>
+      
+    <div id='signin-modal'  class='modal'>
+      <div class='modal-content'>
+        <span class='close'>&times;</span>
+        <h2>Prenez rendez-vous</h2>
+        <form id='appointment-form'>
+          <div class='form-group pt-3'>
+            
+            <label for='myDateInput'>Choisissez une date pour votre rendez-vous</label>
 
-              <input type="date"  lass="calendar"  class="form-control" id="myDateInput" name="myDateInput"    >
+            <input type='date'  lass='calendar'  class='form-control' id='myDateInput' name='myDateInput'    >
 
-            </div>
-            <div class="form-group">
-              <label for="myTimeInput">Choose a time for your appointment<span class="required"></span></label>
-              <select class="form-select" id="myTimeInput" name="myTimeInput"  disabled  >
-                   <optgroup label="AM">
-                    <option value="08:30 - 09:00">08:30 - 09:00</option>
-                    <option value="09:00 - 09:30">09:00 - 09:30</option>
-                    <option value="09:30 - 10:00">09:30 - 10:00</option>
-                    <option value="10:00 - 10:30">10:00 - 10:30</option>
-                    <option value="10:30 - 11:00">10:30 - 11:00</option>
-                    <option value="11:00 - 11:30">11:00 - 11:30</option>
-                    <option value="11:30 - 12:00"><del>11:30 - 12:00</del> </option>
-                  </optgroup>
-                  <optgroup label="PM">
-                    <option value="14:00 - 14:30">14:00 - 14:30</option>
-                    <option value="14:30 - 15:00">14:30 - 15:00</option>
-                    <option value="15:00 - 15:30">15:00 - 15:30</option>
-                    <option value="15:30 - 16:00">15:30 - 16:00</option>
-                    <option value="16:00 - 16:30">16:00 - 16:30</option>
-                    <option value="16:30 - 17:00">16:30 - 17:00</option>
-                    <option value="17:00 - 17:30">17:00 - 17:30</option>
-                    <option value="17:30 - 18:00">17:30 - 18:00</option>
-                  </optgroup>
-                </select>
-             </div>
-            <div class="form-group d-flex justify-content-end">
-              <button type="submit" class="btn btn-primary btn-block login-btn">Done</button>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div class='form-group'>
+            <label for='myTimeInput'>Choisissez une heure pour votre rendez-vous<span class='required'></span></label>
+            <select class='form-select' id='myTimeInput' name='myTimeInput'  disabled  >
+                <optgroup label='AM'>
+                  <option value='08:30 - 09:00'>08:30 - 09:00</option>
+                  <option value='09:00 - 09:30'>09:00 - 09:30</option>
+                  <option value='09:30 - 10:00'>09:30 - 10:00</option>
+                  <option value='10:00 - 10:30'>10:00 - 10:30</option>
+                  <option value='10:30 - 11:00'>10:30 - 11:00</option>
+                  <option value='11:00 - 11:30'>11:00 - 11:30</option>
+                  <option value='11:30 - 12:00'>11:30 - 12:00</option>
+                </optgroup>
+                <optgroup label='PM'>
+                  <option value='14:00 - 14:30'>14:00 - 14:30</option>
+                  <option value='14:30 - 15:00'>14:30 - 15:00</option>
+                  <option value='15:00 - 15:30'>15:00 - 15:30</option>
+                  <option value='15:30 - 16:00'>15:30 - 16:00</option>
+                  <option value='16:00 - 16:30'>16:00 - 16:30</option>
+                  <option value='16:30 - 17:00'>16:30 - 17:00</option>
+                  <option value='17:00 - 17:30'>17:00 - 17:30</option>
+                  <option value='17:30 - 18:00'>17:30 - 18:00</option>
+                </optgroup>
+              </select>
+          </div>
+          <div class='form-group d-flex justify-content-end'>
+            <button type='submit' class='btn btn-primary btn-block'>Terminé</button>
+          </div>
+        </form>
       </div>
     </div>
-  </header>
+  </div>
+    </header>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
-    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+        <div class="carousel-inner" >
 
-      <div class="carousel-inner" >
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
+            <div class="container">
+              <h2>Bienvenue à la clinique en ligne du Dr. Hanaa Draa</h2>
+              <p>Nous proposons des services de soins médicaux de haute qualité via notre plateforme en ligne. Nos professionnels de la santé expérimentés assurent des soins personnalisés et confidentiels à nos patients. Notre objectif est de vous offrir un accès pratique aux soins de santé depuis le confort de votre foyer.</p>
+              <a href="#about" class="btn-get-started scrollto">En savoir plus</a>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
+            <div class="container">
+              <h2>Des soins médicaux experts</h2>
+              <p>Notre équipe de professionnels de la santé, comprenant des médecins, des infirmières et d'autres prestataires de soins de santé, est dévouée à vous offrir des soins médicaux experts. Nous nous engageons à vous aider à atteindre et à maintenir une santé optimale.</p>
+              <a href="#about" class="btn-get-started scrollto">En savoir plus</a>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)">
+            <div class="container">
+              <h2>Pratique et abordable</h2>
+              <p>Notre clinique en ligne vous offre un accès pratique et abordable aux soins de santé. Vous pouvez facilement vous connecter avec nos professionnels de la santé de n'importe où et à tout moment. Nos services sont proposés à des prix compétitifs, et nous acceptons la plupart des principales assurances.</p>
+              <a href="#about" class="btn-get-started scrollto">En savoir plus</a>
+            </div>
+          </div>
 
-        <!-- Slide 1 -->
-            <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
-              <div class="container">
-                <h2>Welcome to Dr. Hanaa Draa's Online Clinic</h2>
-                <p>We offer high-quality medical care services through our online platform. Our experienced medical professionals provide personalized and confidential care to our patients. Our goal is to provide you with convenient access to healthcare from the comfort of your home.</p>
-                <a href="#about" class="btn-get-started scrollto">Read More</a>
-              </div>
-            </div>
-        <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-2.jpg)">
-              <div class="container">
-                <h2>Expert Medical Care</h2>
-                <p>Our team of medical professionals includes doctors, nurses, and other healthcare providers who are dedicated to providing you with expert medical care. We are committed to helping you achieve and maintain optimal health.</p>
-                <a href="#about" class="btn-get-started scrollto">Read More</a>
-              </div>
-            </div>
-        <!-- Slide 3 -->
-            <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)">
-              <div class="container">
-                <h2>Convenient and Affordable</h2>
-                <p>Our online clinic provides you with convenient and affordable access to healthcare. You can easily connect with our medical professionals from anywhere and at any time. Our services are competitively priced, and we accept most major insurance plans.</p>
-                <a href="#about" class="btn-get-started scrollto">Read More</a>
-              </div>
-            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev" title="Diapositive précédente">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+        
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next" title="Diapositive suivante">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
 
       </div>
-
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev" title="Previous Slide">
-        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
-      </a>
-      
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next" title="Next Slide">
-        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-      </a>
-
-    </div>
   </section>
   <!-- End Hero -->
 
@@ -250,16 +226,16 @@ margin-top: -.75rem;
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
       <div class="container" data-aos="zoom-in">
-
+    
         <div class="text-center">
           <!-- schedule.ejs -->
           <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Day</th>
-                  <th scope="col" >AM</th>
-                  <th scope="col" >PM</th>
+                  <th scope="col">Jour</th>
+                  <th scope="col" >Matin</th>
+                  <th scope="col" >Après-midi</th>
                 </tr>
                 <tr>
                   
@@ -274,19 +250,19 @@ margin-top: -.75rem;
                           <% if (day[Object.keys(day)[0]].AM.StartAt.Hour) { %>
                             <%= day[Object.keys(day)[0]].AM.StartAt.Hour %>:<%= day[Object.keys(day)[0]].AM.StartAt.Minute %>
                           <% } else { %>
-                            Closed
+                            Fermé
                           <% } %>
                           <% if (day[Object.keys(day)[0]].AM.EndAt) { %>
                             <% if (day[Object.keys(day)[0]].AM.EndAt.Hour) { %>
                               <%= day[Object.keys(day)[0]].AM.EndAt.Hour %>:<%= day[Object.keys(day)[0]].AM.EndAt.Minute %>
                             <% } else { %>
-                              Closed
+                              Fermé
                             <% } %>
                           <% } else { %>
                             
                           <% } %>
                         <% } else { %>
-                          Closed
+                          Fermé
                         <% } %>
                       </td>
                       <td class="border border-dark">
@@ -300,20 +276,20 @@ margin-top: -.75rem;
                             <% if (day[Object.keys(day)[0]].PM.EndAt.Hour) { %>
                               <%= day[Object.keys(day)[0]].PM.EndAt.Hour %>:<%= day[Object.keys(day)[0]].PM.EndAt.Minute %>
                             <% } else { %>
-                              Closed
+                              Fermé
                             <% } %>
                           <% } else { %>
-                            Closed
+                            Fermé
                           <% } %>
                         <% } else { %>
                           <% if (day[Object.keys(day)[0]].PM.EndAt) { %>
                             <% if (day[Object.keys(day)[0]].PM.EndAt.Hour) { %>
                               <%= day[Object.keys(day)[0]].PM.EndAt.Hour %>:<%= day[Object.keys(day)[0]].PM.EndAt.Minute %>
                             <% } else { %>
-                              Closed
+                              Fermé
                             <% } %>
                           <% } else { %>
-                            Closed
+                            Fermé
                           <% } %>
                         <% } %>
                       </td>
@@ -322,9 +298,9 @@ margin-top: -.75rem;
                 </tbody>
             </table>
           </div>
-
+    
         </div>
-
+    
       </div>
     </section>
     <!-- End Cta Section -->
@@ -333,28 +309,28 @@ margin-top: -.75rem;
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>About Us</h2>
-          <p>Welcome to our medical cabinet, where we are dedicated to providing high-quality healthcare services to our patients. Our team, comprising experienced doctors, is committed to ensuring that every patient receives compassionate and personalized care.</p>
+          <h2>À propos de nous</h2>
+          <p>Bienvenue dans notre cabinet médical, où nous nous engageons à fournir des services de santé de haute qualité à nos patients. Notre équipe, composée de médecins expérimentés, s'engage à s'assurer que chaque patient reçoit des soins attentionnés et personnalisés.</p>
         </div>
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
-            <img src="assets/img/about.jpg" class="img-fluid" alt="Our institution">
+            <img src="assets/img/about.jpg" class="img-fluid" alt="Notre institution">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>About Our Medical Cabinet</h3>
+            <h3>À propos de notre cabinet médical</h3>
             <p class="fst-italic">
-              Our medical cabinet was established in <b>2017</b> with the vision to positively impact people's lives through exceptional healthcare services and significant contributions to the medical field.
+              Notre cabinet médical a été créé en <b>2017</b> avec la vision d'avoir un impact positif sur la vie des gens grâce à des services de santé exceptionnels et des contributions significatives dans le domaine médical.
             </p>
             <ul>
-              <li><i class="bi bi-check-circle"></i> Our team of highly trained and experienced doctor utilizes the latest technology and state-of-the-art equipment to provide the best possible care.</li>
-              <li><i class="bi bi-check-circle"></i> We are committed to treating each patient with dignity, respect, and compassion, offering personalized care tailored to their unique needs.</li>
-              <li><i class="bi bi-check-circle"></i> We believe in continuous education and research, staying at the forefront of medical advancements to ensure the highest quality of care.</li>
+              <li><i class="bi bi-check-circle"></i> Notre équipe de médecins hautement formés et expérimentés utilise les dernières technologies et des équipements de pointe pour fournir les meilleurs soins possibles.</li>
+              <li><i class="bi bi-check-circle"></i> Nous nous engageons à traiter chaque patient avec dignité, respect et compassion, en offrant des soins personnalisés adaptés à leurs besoins uniques.</li>
+              <li><i class="bi bi-check-circle"></i> Nous croyons en l'éducation continue et la recherche, en restant à la pointe des avancées médicales pour garantir la plus haute qualité de soins.</li>
             </ul>
             <p>
-              Our medical cabinet is more than just a healthcare facility; we are a caring community that deeply values the well-being of our patients and their families. We are dedicated to making a positive and lasting difference in their lives.
+              Notre cabinet médical est bien plus qu'une installation de soins de santé ; nous sommes une communauté bienveillante qui accorde une grande importance au bien-être de nos patients et de leurs familles. Nous nous engageons à apporter une différence positive et durable dans leur vie.
             </p>
             <p>
-              In addition to our commitment to exceptional healthcare, we are proud to have been serving the community for several years. Since our establishment in 2017, we have been dedicated to providing top-notch medical services and improving the overall well-being of our patients.
+              En plus de notre engagement envers des soins de santé exceptionnels, nous sommes fiers de servir la communauté depuis plusieurs années. Depuis notre création en 2017, nous nous sommes engagés à fournir des services médicaux de première classe et à améliorer le bien-être général de nos patients.
             </p>
           </div>
         </div>
@@ -366,46 +342,44 @@ margin-top: -.75rem;
     <section id="profile" class="departments">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Doctor Profile</h2>
-          <p>Here you can find information about the doctor's diplomas, experience, and specializations.</p>
+          <h2>Profil du médecin</h2>
+          <p>Ici, vous trouverez des informations sur les diplômes, l'expérience et les spécialisations du médecin.</p>
         </div>
-
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-4 mb-5 mb-lg-0">
             <ul class="nav nav-tabs flex-column">
               <li class="nav-item">
                 <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
-                  <h4>Diplomas</h4>
-                  <p>List of the doctor's diplomas and educational qualifications.</p>
+                  <h4>Diplômes</h4>
+                  <p>Liste des diplômes et qualifications éducatives du médecin.</p>
                 </a>
               </li>
               <li class="nav-item mt-2">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
-                  <h4>Experience</h4>
-                  <p>Summary of the doctor's professional experience and work history.</p>
+                  <h4>Expérience</h4>
+                  <p>Résumé de l'expérience professionnelle et du parcours de travail du médecin.</p>
                 </a>
               </li>
-              <li class="nav-item mt-2">
+              <!-- <li class="nav-item mt-2">
                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
-                  <h4>Specializations</h4>
-                  <p>Details about the doctor's areas of specialization.</p>
+                  <h4>Spécialisations</h4>
+                  <p>Détails sur les domaines de spécialisation du médecin.</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </div>
           <div class="col-lg-8">
             <div class="tab-content">
               <div class="tab-pane active show" id="tab-1">
-                <h3>Diplomas</h3>
-                <p class="fst-italic">List of the doctor's diplomas and educational qualifications.</p>
+                <h3>Diplômes</h3>
+                <p class="fst-italic">Liste des diplômes et qualifications éducatives du médecin.</p>
                 <img src="assets/img/diplomas.jpg" alt="" class="img-fluid">
                 <table class="table table-bordered" style="background-color:#35b2b6; color:white;">
                   <thead>
                     <tr>
-                      <th>Diploma</th>
+                      <th>Diplôme</th>
                       <th>Institution</th>
-                      <th>Date of Completion</th>
-                      <th>Specialization</th>
+                      <th>Date d'obtention</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -420,17 +394,16 @@ margin-top: -.75rem;
                 </table>
               </div>
               <div class="tab-pane" id="tab-2">
-                <h3>Experience</h3>
-                <p class="fst-italic">Summary of the doctor's professional experience and work history.</p>
+                <h3>Expérience</h3>
+                <p class="fst-italic">Résumé de l'expérience professionnelle et du parcours de travail du médecin.</p>
                 <img src="assets/img/experience.jpg" alt="" class="img-fluid">
                 <table class="table table-bordered" style="background-color:#35b2b6; color:white;">
                   <thead>
                     <tr>
-                      <th>Position</th>
+                      <th>Poste</th>
                       <th>Institution</th>
-                      <th>Sart Year</th>
-                      <th>fin Year</th>
-                      <th>Responsibilities</th>
+                      <th>date de début</th>
+                      <th>date de fin</th>
                     </tr>
                   </thead>
                   <tbody>   
@@ -445,30 +418,28 @@ margin-top: -.75rem;
                   </tbody>
                 </table>
               </div>
-              <div class="tab-pane" id="tab-3" >
-                <h3>Specializations</h3>
+              <!-- <div class="tab-pane" id="tab-3" >
+                <h3>Spécialisations</h3>
                   <table class="table table-bordered" style="background-color:#35b2b6; color:white;">
                     <thead>
                       <tr>
-                        <th>Specialization</th>
+                        <th>Spécialisation</th>
                         <th>Description</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Resident Physician</td>
-                        <td>Managed patient care, assisted in surgeries</td>
+                        <td>Médecin résident</td>
+                        <td>Gestion des soins aux patients, assistance aux chirurgies</td>
                       </tr>
                     </tbody>
                   </table>
-              </div>
+              </div> -->
             </div>
           </div>
           </div>
         </div>
       </div>
-
-
       </div>
     </section>
     <!-- End Departments Section -->
@@ -476,138 +447,117 @@ margin-top: -.75rem;
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
-    
         <div class="section-title">
-          <h2>Our Services</h2>
-          <p>At our clinic, we offer a wide range of medical services to help you achieve and maintain your optimal health. Our team of highly qualified medical professionals is dedicated to providing compassionate, personalized care to each and every patient.</p>
+          <h2>Nos services</h2>
+          <p>Dans notre clinique, nous proposons une large gamme de services médicaux pour vous aider à atteindre et à maintenir votre santé optimale. Notre équipe de professionnels médicaux hautement qualifiés s'engage à fournir des soins compatissants et personnalisés à chaque patient.</p>
         </div>
-    
         <div class="row">
           <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon"><i class="fas fa-stethoscope"></i></div>
-            <h4 class="title"><a href="#">General Medicine</a></h4>
-            <p class="description">Our team of experienced doctors specializes in providing comprehensive healthcare services in general medicine, catering to a wide range of medical conditions and concerns.</p>
+            <h4 class="title"><a href="#">Médecine générale</a></h4>
+            <p class="description">Notre équipe de médecins expérimentés est spécialisée dans la fourniture de services de soins de santé complets en médecine générale, adaptés à un large éventail de conditions médicales et de préoccupations.</p>
             </div>
-
-    
           <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon"><i class="fas fa-heartbeat"></i></div>
-            <h4 class="title"><a href="#">Pregnancy Ultrasound Follow-up</a></h4>
-            <p class="description">Our team specializes in providing comprehensive ultrasound follow-up for pregnant women, ensuring the well-being of both mother and baby.</p>
+            <h4 class="title"><a href="#">Suivi échographique de grossesse</a></h4>
+            <p class="description">Notre équipe est spécialisée dans le suivi échographique complet des femmes enceintes, garantissant le bien-être de la mère et du bébé.</p>
           </div>
-
-    
           <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon"><i class="fas fa-hospital-user"></i></div>
-            <h4 class="title"><a href="#">Inpatient Care</a></h4>
-            <p class="description">Our state-of-the-art facilities provide a comfortable and safe environment for patients requiring hospitalization.</p>
+            <h4 class="title"><a href="#">Soins hospitaliers</a></h4>
+            <p class="description">Nos installations ultramodernes offrent un environnement confortable et sûr aux patients nécessitant une hospitalisation.</p>
           </div>
-    
         </div>
-    
       </div>
     </section>
     <!-- End Services Section -->
-
-
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
-
         <div class="section-title">
-          <h2>Contact Us</h2>
-          <p>If you have any questions or would like to schedule an appointment, please feel free to contact us:</p>
+          <h2>Contactez-nous</h2>
+          <p>Si vous avez des questions ou si vous souhaitez prendre rendez-vous, n'hésitez pas à nous contacter :</p>
         </div>
-
       </div>
-
-
       <div class="map-wrapper">
-        <iframe title="Google Maps Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3371.753934446256!2d-9.228638494831785!3d32.31846386556887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdac2117960fa405%3A0xa5f2aa8f02214822!2sCabinet%20Dr%20Hanaa%20DRAA!5e0!3m2!1sfr!2sma!4v1682855368894!5m2!1sfr!2sma" frameborder="0" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe title="Emplacement Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3371.753934446256!2d-9.228638494831785!3d32.31846386556887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdac2117960fa405%3A0xa5f2aa8f02214822!2sCabinet%20Dr%20Hanaa%20DRAA!5e0!3m2!1sfr!2sma!4v1682855368894!5m2!1sfr!2sma" frameborder="0" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-      
-
       <div class="container">
-
-        <div class="row mt-5">
-
-          <div class="col-lg-6">
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="info-box">
-                  <i class="bx bx-map"></i>
-                  <h3>Our Address</h3>
-                  <p>Rue El Azhar N°2 1er étage route HAD HRARA Qu SALAM, 46000</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4">
-                  <i class="bx bx-envelope"></i>
-                  <h3>Email Us</h3>
-                  <p>info@example.com<br>contact@example.com</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="info-box mt-4">
-                  <i class="bx bx-phone-call"></i>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
-                </div>
-              </div>
+    <div class="row mt-5">
+    
+      <div class="col-lg-6">
+    
+        <div class="row">
+          <div class="col-md-12">
+            <div class="info-box">
+              <i class="bx bx-map"></i>
+              <h3>Notre adresse</h3>
+              <p>Rue El Azhar N°2 1er étage route HAD HRARA Qu SALAM, 46000</p>
             </div>
-
           </div>
-
-          <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
-                </div>
-                <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
-                </div>
-              </div>
-              <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
-              </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="7" placeholder="Message" required=""></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+          <div class="col-md-6">
+            <div class="info-box mt-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Contactez-nous par e-mail</h3>
+              <p>info@example.com<br>contact@example.com</p>
+            </div>
           </div>
-
+          <div class="col-md-6">
+            <div class="info-box mt-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Appelez-nous</h3>
+              <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+            </div>
+          </div>
         </div>
-
+    
+      </div>
+    
+      <div class="col-lg-6">
+        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <div class="row">
+            <div class="col-md-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" required="">
+            </div>
+            <div class="col-md-6 form-group mt-3 mt-md-0">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Votre e-mail" required="">
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujet" required="">
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="7" placeholder="Message" required=""></textarea>
+          </div>
+          <div class="my-3">
+            <div class="loading">Chargement</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Votre message a été envoyé. Merci !</div>
+          </div>
+          <div class="text-center"><button type="submit">Envoyer le message</button></div>
+        </form>
+      </div>
+    
+    </div>
       </div>
     </section>
     <!-- End Contact Section -->
 
   </main>
   <!-- End #main -->
-
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
               <h3>DR.HANAA DRAA</h3>
               <p>
                 A108 Salam Street <br>
-                SAFI 46000, Morocco<br><br>
-                <strong>Phone:</strong> +212600000<br>
-                <strong>Email:</strong> info@example.com<br>
+                SAFI 46000, Maroc<br><br>
+                <strong>Téléphone :</strong> +212 669-918003<br>
+                <strong>Email :</strong> info@example.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter" title="Twitter"><i class="bx bxl-twitter"></i></a>
@@ -617,7 +567,6 @@ margin-top: -.75rem;
               </div>
             </div>
           </div>
-
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
@@ -627,26 +576,19 @@ margin-top: -.75rem;
               <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
             </ul>
           </div>
-
-
         </div>
       </div>
     </div>
-
-
-
-
-    <!-- <div class="container">
+    <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Medical</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Hanaa Draa</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         Designed by <a href="https://elhassaniomar.c1.biz/">EL HASSANI Omar</a>
       </div>
-    </div> -->
+    </div>
   </footer>
   <!-- End Footer -->
-
   <div id="preloader"></div>
   <a href="#" title="Back to top" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -661,8 +603,6 @@ margin-top: -.75rem;
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="./static/js/modelformstyle.js"></script>
-
-
   <script>
     $(document).ready(function(){
     $.ajax({
@@ -680,10 +620,8 @@ margin-top: -.75rem;
           console.log(dates);
          initializeFlatpickr(dates);
 
-        }
-        
+        } 
   },})
- 
     function initializeFlatpickr(disabledDates) {
       const disabledDateObjects = disabledDates.map(dateStr => new Date(dateStr));
     $('#myDateInput').flatpickr({
@@ -700,10 +638,6 @@ margin-top: -.75rem;
       ]
     });
   }
-
-    
- 
- 
      $('#myDateInput').change(function(){
         
        $.ajax({
@@ -740,34 +674,38 @@ margin-top: -.75rem;
      });
 
  
-     $('#login-form').submit(function(event) {
-      event.preventDefault(); // Prevent the form from submitting normally
+     $('#appointment-form').submit(function (event) {
+    event.preventDefault();
 
-      // Perform your form processing here
-      const  dateApp = $('input[name="myDateInput"]').val();
-      const  timeApp = $('#myTimeInput').val();
-      const  id = $('#idUser').attr('data-doc') ;
-      console.log(dateApp, timeApp , id);
-      $.ajax({
-        method : 'POST',
-        url : '/Appointment',
-        data : {
-          "date"  : dateApp,
-          "time" : timeApp,
-          "id" : id
-        },
-        success : function(response) {
-          if (response.isSuccess) {
-            $('#signin-modal').hide(); // Hide the modal
-            $('input[name="myDateInput"]').val('');
-            $('#myTimeInput').prop('disabled', true);
-            $('#makeApp').hide();
-            console.log(response.result);
-            showSuccessModal();
-          }
+    const dateApp = $('#myDateInput').val();
+    const timeApp = $('#myTimeInput').val();
+
+    // Use the selected time string for comparison in the backend
+    const formattedTime = timeApp.split(' ')[0];
+
+    $.ajax({
+      method: 'POST',
+      url: '/Appointment',
+      data: {
+        date: dateApp,
+        time: formattedTime,
+      },
+      success: function (response) {
+        if (response.isSuccess) {
+          $('#signin-modal').hide();
+          $('#myDateInput').val('');
+          $('#myTimeInput').prop('disabled', true);
+          $('#makeApp').hide();
+          console.log(response.result);
+          showSuccessModal();
         }
-      })
+      },
+      error: function (xhr, status, error) {
+        console.error(xhr.responseText);
+        alert(xhr.responseText); // Show the error message received from the server
+      },
     });
+  });
 
     function showSuccessModal() {
       $('#successModal').modal('show'); // Show the success modal

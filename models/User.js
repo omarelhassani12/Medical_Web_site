@@ -83,6 +83,13 @@ const User = sqDB.define('users', {
   });
   Appointment.belongsTo(User, { foreignKey: 'idPat' });
 
+  User.hasMany(Appointment,
+  { 
+    foreignKey: 'idDoc' ,
+     onDelete: 'CASCADE', // Set onDelete option to CASCADE
+  });
+  Appointment.belongsTo(User, { foreignKey: 'idDoc' });
+
   User.hasMany(Message, {
     foreignKey: 'idSender',
     onDelete: 'CASCADE',

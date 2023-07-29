@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr. Hanaa Draa Clinic: Providing Quality Healthcare Services</title>
+  <title>Clinique Dr. Hanaa Draa : Fournir des services de santé de qualité</title>
 
 
 <style>
@@ -42,45 +42,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Tableau de bord</h1>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    <!-- Modal Update Appointment -->
-    <!-- Modal -->
-      <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="editAppointmentModalLabel">Edit Appointment</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <label for="input1">Input 1</label>
-                  <input type="text" class="form-control"  id="mydateAppointment" placeholder="Input 1">
-                </div>
-                <div class="col-md-6">
-                  <label for="input2">Input 2</label>
-                  <input type="text" class="form-control" id="input2" placeholder="Input 2">
-                </div>
-              </div>
- 
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" id="submitAppointment">Submit</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-    <!-- End Modal -->
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
@@ -91,14 +58,26 @@
             <div class="small-box bg-info">
               <div class="inner">
                 <h3><%= userCounts.find(obj => obj.role === 1).count %></h3>
-                <p>Doctors</p>
+                <p>Médecins</p>
               </div>
               <div class="icon">
                 <i class="fas fa-user-md"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Plus d'infos <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <!-- ./col -->
+            <!-- <div class="small-box bg-info">
+              <div class="inner">
+                <h3><%= userCounts.find(obj => obj.role === 2).count %></h3>
+                <p>Secrétaires</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-user-md"></i>
+              </div>
+              <a href="#" class="small-box-footer">Plus d'infos <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div> -->
           <!-- ./col -->
           <div class="col-lg-4 col-6">
             <!-- small box -->
@@ -113,7 +92,7 @@
               <div class="icon">
                 <i class="fas fa-procedures"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Plus d'infos <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -122,14 +101,14 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner"style="color: white;">
-                 <h3 id="appointmentCount" >Loading...</h3>
+                 <h3 id="appointmentCount" >Chargement...</h3>
 
-                <p>Appointments</p>
+                <p>Rendez-vous</p>
               </div>
               <div class="icon">
                 <i class="fas fa-calendar-alt"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Plus d'infos <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -140,7 +119,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">To day appointments</h3>
+                <h3 class="card-title">Rendez-vous d'aujourd'hui</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -149,12 +128,12 @@
                     <tr>
                       <th>Patient</th>
                       <th>Date</th>
-                      <th>Hour</th>
-                      <th>Actions</th> <!-- New column for actions -->
+                      <th>Heure</th>
+                      <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
                     </tr>
                   </thead>
                   <tbody>
-                    <% appointments.forEach(appointment => { %>
+                    <% appointments.slice(-15).forEach(appointment => { %>
                     <tr> 
                       <td><%- appointment.user.firstName %> <%- appointment.user.lastName %></td>
                       <td><%- appointment.DateApp %></td>
@@ -195,5 +174,3 @@
 
 </body>
 </html>
-
-

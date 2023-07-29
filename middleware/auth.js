@@ -14,7 +14,7 @@ module.exports.auth = (req , res , next) => {
             }else 
                { 
                 const user = await User.findOne({where : {id : decodeToken.id}}) ;
-                user.isMakeApp = isMakeAppointment ;
+                // user.isMakeApp = isMakeAppointment ;
                 res.locals.user = user ; 
                  next();
             }
@@ -37,8 +37,6 @@ module.exports.isAdmin = (req, res, next) => {
       res.redirect('back'); // User is not an admin, redirect to the index page (or any other page you want)
     }
     } else       res.redirect('/'); // User is not an admin, redirect to the index page (or any other page you want)
-
-
   };
   
 

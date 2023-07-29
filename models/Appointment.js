@@ -10,11 +10,18 @@ const Appointment = sqDB.define('appointments' ,   {
     },
     DateApp: {
         type: DataTypes.DATE,
-     },
-    HourApp: {
-        type : DataTypes.STRING,
         allowNull: false,
-    }, 
+        validate: {
+          isDate: true,
+        },
+      },
+      HourApp: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
     idPat : { 
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -23,14 +30,16 @@ const Appointment = sqDB.define('appointments' ,   {
             key: 'id'
         }
     }, 
-    idDoc : {
+    idDoc: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        defaultValue: 93,
         references: {
             model: 'users',
             key: 'id'
         }
-    } 
+    }
+    
 })
 
 module.exports = Appointment;

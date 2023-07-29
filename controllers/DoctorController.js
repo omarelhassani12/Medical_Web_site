@@ -107,7 +107,20 @@ const addDoctor = async (req, res) => {
 };
 
 
-
+const getAssistant = (req, res) => {
+  User.findAll({
+    where: {
+      role: 2
+    }
+  })
+    .then(assistants => {
+      res.render('Dashboard/Assistant', { assistants });
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).send('An error occurred');
+    });
+};
 
 const deleteUser = (req, res) => {
   const userId = req.params.id; // Assuming the user ID is passed as a parameter
@@ -387,6 +400,7 @@ module.exports = {
   DeleteManyPatients,
   updateDoctor,
   DeleteExp,
+  getAssistant,
   getPatients,
   getSecretaires,
   deleteSecretaire,

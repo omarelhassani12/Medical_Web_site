@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr. Hanaa Draa Clinic: Providing Quality Healthcare Services</title>
+  <title>Clinique Dr. Hanaa Draa : Fournir des services de santé de qualité</title>
 <!-- Font Awesome -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -19,7 +19,6 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
   rel="stylesheet"
 />
-
 <style>
 .card-body {
   display: flex;
@@ -36,18 +35,13 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
   <!-- Preloader -->
   <!-- <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div> -->
- <%- include('./components/navbar') %>
+<%- include('./components/navbar') %>
 
- <%- include('./components/sidebar') %>
-
-
-
-
+<%- include('./components/sidebar') %>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -56,127 +50,121 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Experiances</h1>
+            <h1 class="m-0">Expériences</h1>
           </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-
-
-        <!-- Modal Edit Doctor -->
-        <div class="modal top fade" id="Ajouter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
-            <!-- Modal content -->
-            <div class="modal-dialog ">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Add Experiance</h5>
-                  <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <form  id="AddExperiance"  >
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <label for="input-name" class="col-form-label">Label Experiance:</label>
-                          <input type="text" name="label" class="form-control" id="input-name" required />
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label for="input-prenom" class="col-form-label">Description :</label>
-                          <input type="text" name="description" class="form-control" id="input-prenom" required />
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6 mb-3">
-                          <label for="input-tele" class="col-form-label">Date Debut:</label>
-                          <input type="date" name="dateStart" class="form-control" id="input-tele" required />
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label for="input-cni" class="col-form-label">Date fin:</label>
-                          <input type="date" name="dateEnd" class="form-control" id="input-cni" required />
-                        </div>
-                      </div>
-                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                    Close
-                  </button>
-                  <button type="submit" class="btn btn-primary">add Doctor</button>
-                </div>
-              </form>
-              </div>
+    <!-- Modal Ajouter une expérience -->
+    <div class="modal top fade" id="Ajouter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="static" data-mdb-keyboard="false">
+        <!-- Contenu du modal -->
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ajouter une expérience</h5>
+              <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Fermer"></button>
             </div>
-          </div>
-          <!-- End Modal Edit Doctor -->
-
-              <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="d-flex justify-content-end mb-3"> 
-            <button
-            type="button"
-            class="btn btn-primary"
-            data-mdb-toggle="modal"
-            data-mdb-target="#Ajouter"
-            data-mdb-whatever="@mdo"
-            >
-            <i class="fa fa-plus"></i> Experiance
-        </button>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Experiances</h3>
-              </div>
-              <div class="card-body">
-
-
-                <table id="example1" class="table table-bordered table-striped ">
-                  <thead>
-                    <tr>
-                      <th>label</th>
-                      <th>Description</th>
-                      <th>Date Start</th>
-                      <th>Date End</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- Loop through doctors data and generate rows -->
-
-                    <% exps.forEach(exp => { 
-                        %>
-                    <tr id="<%= exp.id %>">
-                      <td><%- exp.labelExperiance  %></td>
-                       <td><%- exp.descriptionExperiance %></td>
-                       <td><%- exp.DateStart %></td>
-                      <td><%- exp.DateEnd %></td>
-                      <td class="text-center">
-                         <span class="btn btn-sm btn-danger btn-floating" onclick="DeleteExperiance('<%= exp.id %>')"><i class="fas fa-trash-alt"></i></span>
-                      </td>
-                      
-                    </tr>
-                    <% }) %>
-                  </tbody>
-                </table>
-              </div>
+            <div class="modal-body">
+            <form id="AddExperiance">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="input-name" class="col-form-label">Libellé de l'expérience :</label>
+                      <input type="text" name="label" class="form-control" id="input-name" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="input-prenom" class="col-form-label">Description :</label>
+                      <input type="text" name="description" class="form-control" id="input-prenom" required />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="input-tele" class="col-form-label">Date de début :</label>
+                      <input type="date" name="dateStart" class="form-control" id="input-tele" required />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="input-cni" class="col-form-label">Date de fin :</label>
+                      <input type="date" name="dateEnd" class="form-control" id="input-cni" required />
+                    </div>
+                  </div>
+             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                Fermer
+              </button>
+              <button type="submit" class="btn btn-primary">Ajouter une expérience</button>
             </div>
+          </form>
           </div>
         </div>
       </div>
-    </section>
-    <!-- /.content -->
+      <!-- Fin Modal Ajouter une expérience -->
+
+          <!-- Contenu principal -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="d-flex justify-content-end mb-3"> 
+        <button
+        type="button"
+        class="btn btn-primary"
+        data-mdb-toggle="modal"
+        data-mdb-target="#Ajouter"
+        data-mdb-whatever="@mdo"
+        >
+        <i class="fa fa-plus"></i> Expérience
+    </button>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Expériences</h3>
+          </div>
+          <div class="card-body">
+
+
+            <table id="example1" class="table table-bordered table-striped ">
+              <thead>
+                <tr>
+                  <th>Libellé</th>
+                  <th>Description</th>
+                  <th>Date de début</th>
+                  <th>Date de fin</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Boucle à travers les données des expériences et générer les lignes -->
+
+                <% exps.forEach(exp => { 
+                    %>
+                <tr id="<%= exp.id %>">
+                  <td><%- exp.labelExperiance  %></td>
+                   <td><%- exp.descriptionExperiance %></td>
+                   <td><%- exp.DateStart %></td>
+                  <td><%- exp.DateEnd %></td>
+                  <td class="text-center">
+                     <span class="btn btn-sm btn-danger btn-floating" onclick="DeleteExperiance('<%= exp.id %>')"><i class="fas fa-trash-alt"></i></span>
+                  </td>
+                  
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <%- include('./components/footer') %>
+<%- include('./components/footer') %>
 
 </div>
 <!-- ./wrapper -->
-
-
- 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <!-- Page specific script -->
+  <!-- Script spécifique à la page -->
  <script src="js/experiance.js"></script>
 </html>

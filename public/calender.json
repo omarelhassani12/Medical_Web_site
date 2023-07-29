@@ -1,6 +1,6 @@
 [
 	{
-		"Monday": {
+		"Lundi": {
 			"AM": {
 				"StartAt": {
 					"Hour": "09",
@@ -18,7 +18,7 @@
 		}
 	},
 	{
-		"Tuesday": {
+		"Mardi": {
 			"AM": {
 				"StartAt": {
 					"Hour": "09",
@@ -36,7 +36,7 @@
 		}
 	},
 	{
-		"Windsday": {
+		"Mercredi": {
 			"AM": {
 				"StartAt": {
 					"Hour": "09",
@@ -54,7 +54,7 @@
 		}
 	},
 	{
-		"Thursday": {
+		"Jeudi": {
 			"AM": {
 				"StartAt": {
 					"Hour": "09",
@@ -72,7 +72,7 @@
 		}
 	},
 	{
-		"Friday": {
+		"Vendredi": {
 			"AM": {
 				"StartAt": {
 					"Hour": "09",
@@ -90,7 +90,7 @@
 		}
 	},
 	{
-		"Sunday": {
+		"Samedi": {
 			"AM": {
 				"StartAt": {
 					"Hour": "09",
@@ -108,7 +108,7 @@
 		}
 	},
 	{
-		"Saturday": {
+		"Dimanche": {
 			"AM": {
 				"StartAt": null,
 				"EndAt": null

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr. Hanaa Draa Clinic: Providing Quality Healthcare Services</title>
+  <title>Clinique Dr. Hanaa Draa : Fournir des services de soins de santé de qualité</title>
 <!-- Font Awesome -->
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -19,7 +19,6 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.3.1/mdb.min.css"
   rel="stylesheet"
 />
-
 <style>
 .card-body {
   display: flex;
@@ -36,15 +35,13 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
   <!-- Preloader -->
   <!-- <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div> -->
- <%- include('./components/navbar') %>
+<%- include('./components/navbar') %>
 
- <%- include('./components/sidebar') %>
-
+<%- include('./components/sidebar') %>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -58,67 +55,62 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-
-       <!-- Main content -->
-       <section class="content">
-        <div class="container-fluid">
-           </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">To day appointments</h3>
+   <!-- Main content -->
+   <section class="content">
+    <div class="container-fluid">
+       </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Liste des patients</h3>
+            </div>
+            <div class="card-body">
+                <div class="text-start mb-4">
+                  <button id="deleteButton" type="button" onclick="handleRemovePatients()" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark">SUPPRIMER sélectionné</button>
                 </div>
-                <div class="card-body">
-                    <div class="text-start mb-4">
-                      <button id="deleteButton" type="button" onclick="handleRemovePatients()" class="btn btn-outline-danger btn-rounded" data-mdb-ripple-color="dark">DELETE Selected</button>
-                    </div>
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                          <tr>
-                            <th>Select</th>
-                            <th>Complete Name</th>
-                            <th>Telephone</th>
-                            <th>Address</th>
-                            <th>Email</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <!-- Loop through patients data and generate rows -->
-                          <% Patients.forEach(patient => { 
-                            if (patient.id !== user.id) { %>
-                          <tr id="<%= patient.id %>">
-                            <td class="text-center">
-                              <input type="checkbox" class="form-check-input"  data-id="<%= patient.id %>">
-                            </td>
-                            <td><%- patient.firstName + " " + patient.lastName%></td>
-                            <td><%- patient.telephone %></td>
-                            <td><%- patient.address %></td>
-                            <td><%- patient.email %></td>
-                          </tr>
-                          <% } }) %>
-                        </tbody>
-                      </table>                    
-                </div>
-              </div>
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Sélectionner</th>
+                        <th>Nom complet</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Boucle à travers les données des patients et générer les lignes -->
+                      <% Patients.forEach(patient => { 
+                        if (patient.id !== user.id) { %>
+                      <tr id="<%= patient.id %>">
+                        <td class="text-center">
+                          <input type="checkbox" class="form-check-input"  data-id="<%= patient.id %>">
+                        </td>
+                        <td><%- patient.firstName + " " + patient.lastName%></td>
+                        <td><%- patient.telephone %></td>
+                        <td><%- patient.address %></td>
+                        <td><%- patient.email %></td>
+                      </tr>
+                      <% } }) %>
+                    </tbody>
+                  </table>                    
             </div>
           </div>
         </div>
-      </section>
-      <!-- /.content -->
+      </div>
     </div>
-    <!-- /.content-wrapper -->
-  
-    <%- include('./components/footer') %>
-  
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<%- include('./components/footer') %>
   </div>
   <!-- ./wrapper -->
-  
-  
-   
   </body>
-   
-    <!-- Page specific script -->
-    <script src="js/patient.js"></script>
+php
+Copy code
+<!-- Script spécifique à la page -->
+<script src="js/patient.js"></script>
    </html>
-  

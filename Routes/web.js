@@ -3,9 +3,12 @@ const RouteWeb = express.Router();
 const UserController = require('../controllers/UserController');
 const Middleware = require('../middleware/auth');
 const PatinetController = require('../controllers/PatinetController');
+const { createAppointment } = require('../controllers/PatinetController');
+
 const Appointment = require('../models/Appointment');
 const Sequelize = require('sequelize');
 const DoctorController = require('../controllers/DoctorController');
+const AssistantController = require('../controllers/AssistantController');
 const User = require('../models/User');
 const { Op } = require('sequelize');
 const ChatController = require('../controllers/ChatController');
@@ -54,7 +57,7 @@ RouteWeb.get('/checkTimes/:DayCheck' , async (req, res)=> {
       }).then((result)=> { res.json({data : result , isSuccess : true});}).catch((err)=> console.log(err));
 })
 
-RouteWeb.post('/Appointment', PatinetController.Appointment);
+RouteWeb.post('/Appointment', PatinetController.createAppointment);
 
 RouteWeb.get('/logout', PatinetController.logout);
 
@@ -83,6 +86,8 @@ RouteWeb.delete('/API/Patients/ManyPatients' , DoctorController.DeleteManyPatien
 
 RouteWeb.put('/API/Doctor/edit/:id' ,  DoctorController.updateDoctor);
 
+RouteWeb.get('/Assistant'  , DoctorController.getAssistant)
+
 RouteWeb.get('/Patients' , DoctorController.getPatients);
 
 RouteWeb.get('/Certificates' , DoctorController.getAllCertificates)
@@ -96,5 +101,11 @@ RouteWeb.get('/Experiances' , DoctorController.getAllExp );
 RouteWeb.post('/API/AddExper' , DoctorController.AddExp) ;
 
 RouteWeb.delete('/DELETE/experiences/:id' , DoctorController.DeleteExp)
+
+//////////////////////////////// Assistant routes //////////////////////////////////
+
+RouteWeb.get('/AssistantDashboard' , AssistantController.index );
+
+
 
 module.exports = RouteWeb
