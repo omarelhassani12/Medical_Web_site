@@ -57,7 +57,7 @@ RouteWeb.get('/checkTimes/:DayCheck' , async (req, res)=> {
       }).then((result)=> { res.json({data : result , isSuccess : true});}).catch((err)=> console.log(err));
 })
 
-RouteWeb.post('/Appointment', PatinetController.createAppointment);
+RouteWeb.post('/Appointment',UserController.getLoggedInUserId, PatinetController.createAppointment);
 
 RouteWeb.get('/logout', PatinetController.logout);
 

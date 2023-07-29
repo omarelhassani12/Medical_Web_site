@@ -144,27 +144,27 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
           </div>
           <div class='form-group'>
             <label for='myTimeInput'>Choisissez une heure pour votre rendez-vous<span class='required'></span></label>
-            <select class='form-select' id='myTimeInput' name='myTimeInput'  disabled  >
-                <optgroup label='AM'>
-                  <option value='08:30 - 09:00'>08:30 - 09:00</option>
-                  <option value='09:00 - 09:30'>09:00 - 09:30</option>
-                  <option value='09:30 - 10:00'>09:30 - 10:00</option>
-                  <option value='10:00 - 10:30'>10:00 - 10:30</option>
-                  <option value='10:30 - 11:00'>10:30 - 11:00</option>
-                  <option value='11:00 - 11:30'>11:00 - 11:30</option>
-                  <option value='11:30 - 12:00'>11:30 - 12:00</option>
-                </optgroup>
-                <optgroup label='PM'>
-                  <option value='14:00 - 14:30'>14:00 - 14:30</option>
-                  <option value='14:30 - 15:00'>14:30 - 15:00</option>
-                  <option value='15:00 - 15:30'>15:00 - 15:30</option>
-                  <option value='15:30 - 16:00'>15:30 - 16:00</option>
-                  <option value='16:00 - 16:30'>16:00 - 16:30</option>
-                  <option value='16:30 - 17:00'>16:30 - 17:00</option>
-                  <option value='17:00 - 17:30'>17:00 - 17:30</option>
-                  <option value='17:30 - 18:00'>17:30 - 18:00</option>
-                </optgroup>
-              </select>
+            <select class='form-select' id='myTimeInput' name='myTimeInput' disabled>
+              <optgroup label='AM' id='amOptions'>
+                <option value='08:30 - 09:00'>08:30 - 09:00</option>
+                <option value='09:00 - 09:30'>09:00 - 09:30</option>
+                <option value='09:30 - 10:00'>09:30 - 10:00</option>
+                <option value='10:00 - 10:30'>10:00 - 10:30</option>
+                <option value='10:30 - 11:00'>10:30 - 11:00</option>
+                <option value='11:00 - 11:30'>11:00 - 11:30</option>
+                <option value='11:30 - 12:00'>11:30 - 12:00</option>
+              </optgroup>
+              <optgroup label='PM' id='pmOptions'>
+                <option value='14:00 - 14:30'>14:00 - 14:30</option>
+                <option value='14:30 - 15:00'>14:30 - 15:00</option>
+                <option value='15:00 - 15:30'>15:00 - 15:30</option>
+                <option value='15:30 - 16:00'>15:30 - 16:00</option>
+                <option value='16:00 - 16:30'>16:00 - 16:30</option>
+                <option value='16:30 - 17:00'>16:30 - 17:00</option>
+                <option value='17:00 - 17:30'>17:00 - 17:30</option>
+                <option value='17:30 - 18:00'>17:30 - 18:00</option>
+              </optgroup>
+            </select>
           </div>
           <div class='form-group d-flex justify-content-end'>
             <button type='submit' class='btn btn-primary btn-block'>Terminé</button>
@@ -603,85 +603,75 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="./static/js/modelformstyle.js"></script>
-  <script>
-    $(document).ready(function(){
+<script>
+  $(document).ready(function () {
     $.ajax({
-        method : 'GET' ,
-        url : '/checkDays',
-        success: function(response) {
-         // Handle the successful response here
+      method: 'GET',
+      url: '/checkDays',
+      success: function (response) {
         if (response.isSuccess) {
           dates = [];
           for (var i = 0; i < response.data.length; i++) {
-               dates.push(response.data[i].date);
-             
-                
+            dates.push(response.data[i].date);
           }
-          console.log(dates);
-         initializeFlatpickr(dates);
-
-        } 
-  },})
-    function initializeFlatpickr(disabledDates) {
-      const disabledDateObjects = disabledDates.map(dateStr => new Date(dateStr));
-    $('#myDateInput').flatpickr({
-      minDate: new Date(),
-      disable: [
-        function(date) {
-          // Disable Sunday
-          return date.getDay() === 0;
-        },
-          ...disabledDateObjects , // Disable a specific date
-        {
-                // Disable the dates from the backend response
+          initializeFlatpickr(dates);
         }
-      ]
+      },
     });
-  }
-     $('#myDateInput').change(function(){
-        
-       $.ajax({
-        method : 'GET', 
-        url : '/checkTimes/'+$(this).val(),
-        success : function(response) {
-            if (response.isSuccess) {
-             const arrayTime = response.data.map(element=>
-              element.HourApp
-             )
-             // Retrieve the select element
-                const $select = $('#myTimeInput');
 
-              // Loop through each option
-                $select.find('option').each(function() {
-                const optionValue = $(this).val();
+    function initializeFlatpickr(disabledDates) {
+      const disabledDateObjects = disabledDates.map((dateStr) => new Date(dateStr));
+      $('#myDateInput').flatpickr({
+        minDate: new Date(),
+        disable: [
+          function (date) {
+            // Disable Sunday
+            return date.getDay() === 0;
+          },
+          ...disabledDateObjects, // Disable specific dates from the backend response
+        ],
+      });
+    }
 
-                // Check if the option value is present in the arrayTime array
-                if (arrayTime.includes(optionValue)) {
-                  // Disable the option
-                  $(this).prop('disabled', true).addClass('disabled-option');;
-                    
-                 } 
-              });
-             console.log(arrayTime);
-            }
-        
-        }
-       })
+    $('#myDateInput').change(function () {
+      $.ajax({
+        method: 'GET',
+        url: '/checkTimes/' + $(this).val(),
+        success: function (response) {
+          if (response.isSuccess) {
+            const arrayTime = response.data.map((element) => element.HourApp);
 
+            // Retrieve the select element
+            const $select = $('#myTimeInput');
 
-       $('#myTimeInput').prop("disabled", false); 
+            // Loop through each option
+            $select.find('option').each(function () {
+              const optionValue = $(this).val();
 
-     });
+              // Check if the option value is present in the arrayTime array
+              if (arrayTime.includes(optionValue)) {
+                // Disable the option
+                $(this).prop('disabled', true).addClass('disabled-option');
+              } else {
+                // Enable the option if it is not booked
+                $(this).prop('disabled', false).removeClass('disabled-option');
+              }
+            });
+          }
+        },
+      });
 
- 
-     $('#appointment-form').submit(function (event) {
+      // Enable the time select input when the date is changed
+      $('#myTimeInput').prop('disabled', false);
+    });
+    $('#appointment-form').submit(function (event) {
     event.preventDefault();
 
     const dateApp = $('#myDateInput').val();
     const timeApp = $('#myTimeInput').val();
 
-    // Use the selected time string for comparison in the backend
-    const formattedTime = timeApp.split(' ')[0];
+    // No need to split the time value, we can directly use it as the formatted time
+    const formattedTime = timeApp;
 
     $.ajax({
       method: 'POST',
@@ -707,17 +697,63 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
     });
   });
 
+  // Function to check and disable booked time slots
+  function disableBookedTimeSlots(arrayTime) {
+    // Retrieve the select element
+    const $select = $('#myTimeInput');
+
+    // Loop through each option
+    $select.find('option').each(function () {
+      const optionValue = $(this).val();
+
+      // Check if the option value is present in the arrayTime array
+      if (arrayTime.includes(optionValue)) {
+        // Disable the option
+        $(this).prop('disabled', true).addClass('disabled-option');
+      } else {
+        // Enable the option if it is not booked
+        $(this).prop('disabled', false).removeClass('disabled-option');
+      }
+    });
+  }
+
+  // Call the disableBookedTimeSlots function on page load
+  const selectedDate = $('#myDateInput').val();
+  $.ajax({
+    method: 'GET',
+    url: '/checkTimes/' + selectedDate,
+    success: function (response) {
+      if (response.isSuccess) {
+        const arrayTime = response.data.map((element) => element.HourApp);
+        disableBookedTimeSlots(arrayTime);
+      }
+    },
+  });
+
+  // Call the disableBookedTimeSlots function whenever the date is changed
+  $('#myDateInput').change(function () {
+    const selectedDate = $(this).val();
+    $.ajax({
+      method: 'GET',
+      url: '/checkTimes/' + selectedDate,
+      success: function (response) {
+        if (response.isSuccess) {
+          const arrayTime = response.data.map((element) => element.HourApp);
+          disableBookedTimeSlots(arrayTime);
+        }
+      },
+    });
+  });
     function showSuccessModal() {
       $('#successModal').modal('show'); // Show the success modal
 
-      setTimeout(function() {
+      setTimeout(function () {
         $('#successModal').modal('hide'); // Hide the success modal after 2 seconds
       }, 2000);
     }
+  });
+</script>
 
-   });
-  
-  </script>
 
 
 

@@ -31,7 +31,8 @@ const { Op } = require('sequelize');
 module.exports.createAppointment = async (req, res) => {
   try {
     const { date, time } = req.body;
-    const idPat = 4; // You need to retrieve the patient ID from the logged-in user
+
+    const idPat = req.user.id;
 
     if (!idPat) {
       return res.status(401).json({ error: 'Unauthorized' });
@@ -39,7 +40,7 @@ module.exports.createAppointment = async (req, res) => {
 
      // Format the date and time for comparison in the database
      const formattedDate = new Date(date).toISOString().split('T')[0];
-     const formattedTime = time.split(' ')[0];
+     const formattedTime = time;
  
      // Check if the selected date and time are available
      const existingAppointment = await Appointment.findOne({
@@ -59,8 +60,13 @@ module.exports.createAppointment = async (req, res) => {
       idPat,
       idDoc: 103, // You may set the default doctor ID as needed
     });
+    
+    console.log(`DateApp: ${appointment.DateApp}`);
+    console.log(`HourApp: ${appointment.HourApp}`);
+    console.log(`idPat: ${appointment.idPat}`);
+    console.log(`idDoc: ${appointment.idDoc}`);
 
-    res.cookie('isMakeAppointment', true, { httpOnly: true, maxAge: 60 * 60 * 24 * 1000 });
+    // res.cookie('isMakeAppointment', true, { httpOnly: true, maxAge: 60 * 60 * 24 * 1000 });
 
     res.status(201).json({
       result: appointment,

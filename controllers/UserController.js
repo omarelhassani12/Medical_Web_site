@@ -118,23 +118,40 @@ const LoginUser =async (req, res )=>{
     const { email , password } = req.body;
  
    
-// Call the static method
-User.authenticate(email, password, function(err, user) {
-  if (err) {
-    console.error(err);
-  } else if (!user) {
-    res.json({error : 'Invalid username or password'});
+    // Call the static method
+    User.authenticate(email, password, function(err, user) {
+      if (err) {
+        console.error(err);
+      } else if (!user) {
+        res.json({error : 'Invalid username or password'});
+      } else {
+        const token = createToken(user.id);
+        
+        res.cookie('jwt', token , { httpOnly: true  , maxAge: maxAge * 1000});
+
+        res.json({user});
+      }
+    });    
+};
+const getLoggedInUserId = (req, res, next) => {
+  const token = req.cookies.jwt;
+
+  if (token) {
+    jwt.verify(token, 'secret key hash payload', (err, decodedToken) => {
+      if (err) {
+        console.error(err);
+        // Handle invalid or expired token
+        return res.status(401).json({ error: 'Unauthorized' });
+      } else {
+        req.user = { id: decodedToken.id }; // Attach the user ID to the request object
+        next(); // Continue with the next middleware or route handler
+      }
+    });
   } else {
-    const token = createToken(user.id);
-     
-    res.cookie('jwt', token , { httpOnly: true  , maxAge: maxAge * 1000});
-
-    res.json({user});
+    // No token found, user is not authenticated
+    return res.status(401).json({ error: 'Unauthorized' });
   }
-});    
- 
-    
-}
+};
 
 
-module.exports = {RegisterUser , handeller , index , LoginUser};
+module.exports = {RegisterUser , handeller , index , LoginUser, getLoggedInUserId};
