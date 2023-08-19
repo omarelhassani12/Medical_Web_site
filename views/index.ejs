@@ -78,7 +78,7 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
 
     <!-- <a href='index.html' class='logo me-auto'><img src='assets/img/logo.png' alt=''></a> -->
     <!-- Uncomment below if you prefer to use an image logo -->
-    <img src='favicon.png' alt='logo' width='40' height='50'>
+    <a href='/' class='logo me-auto'><img src='favicon.png' alt='logo' width='40' height='50'></a>
 
     <nav id='navbar' class='navbar order-last order-lg-0'>
       <ul>
@@ -96,7 +96,7 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
     <% if (user) { %>
         <a href='/chat' class='appointment-btn scrollto' id='makeApp'><span class='d-none d-md-inline'>Prendre un</span> rendez-vous</a>      
         <a href='/chat' class='ps-4' style='padding-right: 10px;'><i class='fa fa-commenting-o fa-2x'></i></a>
-        <a data-doc='<%= user.id %>' id='idUser' class='nav-link scrollto'> <b><%= user.firstName + ' ' + user.lastName %></b></a>
+        <a data-doc='<%= user.id %>' id='idUser' class='nav-link scrollto'> <b><%= user.firstName + ' ' + user.lastName  %></b></a>
         <a href='/logout' id='logout' class='btn btn-info' >Se déconnecter</a>
     <% } else { %>
       <a href='/login' class='btn btn-secondary'>Se connecter</a>
@@ -123,13 +123,12 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
       <div class='modal-content'>
         <span class='close'>&times;</span>
         <h2>Prenez rendez-vous</h2>
-        <form id='appointment-form'>
-          <div class='form-group pt-3'>
-            
+        <form id='appointment-form' action="/pdf/generate-teckit" method="POST">
+          <input type="hidden" id="userIdInput" name="userId" value="">
+
+          <div class='form-group pt-3'>            
             <label for='myDateInput'>Choisissez une date pour votre rendez-vous</label>
-
-            <input type='date'  lass='calendar'  class='form-control' id='myDateInput' name='myDateInput'    >
-
+            <input type='date'  lass='calendar'  class='form-control' id='myDateInput' name='myDateInput'>
           </div>
           <div class='form-group'>
             <label for='myTimeInput'>Choisissez une heure pour votre rendez-vous<span class='required'></span></label>
@@ -592,6 +591,7 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="./static/js/modelformstyle.js"></script>
+
 <script>
   $(document).ready(function () {
     $.ajax({
@@ -686,6 +686,40 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
     });
   });
 
+
+  //for pdf generation
+  $('#appointment-form').submit(async function (event) {
+      event.preventDefault();
+
+      const dateApp = $('#myDateInput').val();
+      const timeApp = $('#myTimeInput').val();
+
+      // No need to split the time value, we can directly use it as the formatted time
+      const formattedTime = timeApp;
+      console.log("call for pdf");
+
+      try {
+        const response = await fetch('/pdf/generate-teckit', {
+          method: 'POST',
+          body: new URLSearchParams({
+            myDateInput: dateApp,
+            myTimeInput: formattedTime,
+          }),
+        });
+
+        if (response.ok) {
+          // Display a success message or perform other actions if needed
+          showSuccessModal();
+        } else {
+          const errorMessage = await response.text();
+          console.error('Error generating PDF:', errorMessage);
+          // Show an error message if needed
+        }
+      } catch (error) {
+        console.error('Error generating PDF:', error);
+        // Show an error message if needed
+      }
+    });
   // Function to check and disable booked time slots
   function disableBookedTimeSlots(arrayTime) {
     // Retrieve the select element
@@ -742,8 +776,6 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
     }
   });
 </script>
-
-
 
 
 </body>

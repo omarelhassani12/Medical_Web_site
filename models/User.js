@@ -76,20 +76,18 @@ const User = sqDB.define('users', {
   },);
 
   //////////////////////////////// Association Types //////////////////////////////////
-  User.hasMany(Appointment,
-  { 
-    foreignKey: 'idPat' ,
-     onDelete: 'CASCADE', // Set onDelete option to CASCADE
+  User.hasMany(Appointment, {
+    foreignKey: 'idPat',
+    onDelete: 'CASCADE',
   });
+
   Appointment.belongsTo(User, { foreignKey: 'idPat' });
 
-  User.hasMany(Appointment,
-  { 
-    foreignKey: 'idDoc' ,
-     onDelete: 'CASCADE', // Set onDelete option to CASCADE
+  User.hasMany(Appointment, {
+    foreignKey: 'idDoc',
+    onDelete: 'CASCADE',
   });
   Appointment.belongsTo(User, { foreignKey: 'idDoc' });
-
   User.hasMany(Message, {
     foreignKey: 'idSender',
     onDelete: 'CASCADE',

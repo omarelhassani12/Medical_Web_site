@@ -14,6 +14,7 @@ dotenv.config ({path : path.join(__dirname, './.env')});
 const  bodyParser = require('body-parser');
 const RouterWeb = require('./Routes/web');
 const Middleware = require('./middleware/auth');
+const TicketRoutes = require('./Routes/ticketRoutes');
   
 const PORT = process.env.PORT ?? 3306  ;
 
@@ -24,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(bodyParser.urlencoded({extended : true , limit: '25mb'})) ;
 app.use(cookiesParser()) ; 
-  
+app.use(express.static('public'));
 
    var client = {}
 
@@ -47,3 +48,4 @@ app.use(cookiesParser()) ;
 
 app.get('*' , Middleware.auth)
 app.use('/' ,RouterWeb);
+app.use('/pdf' ,TicketRoutes);
