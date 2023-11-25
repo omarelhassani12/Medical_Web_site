@@ -13,19 +13,13 @@ async function generateMedicalAppointmentPDF(req, res) {
     const currentTime = `${now.getHours()}_${now.getMinutes()}`;
 
     const doc = new PDFDocument({ size: 'A4' });
-
     res.setHeader('Content-Disposition', `attachment; filename=appointment_${username}_${date}_${currentTime}.pdf`);
     res.setHeader('Content-Type', 'application/pdf');
-
     doc.pipe(res);
-
     const clinicLogoPath = path.join(__dirname, '../public/favicon.png'); 
     doc.image(clinicLogoPath, 50, 40, { width: 80 });
-
     doc.moveDown(1);
-
     doc.fontSize(25).text("Cabinet Draae", { align: 'right' });
-
     doc.moveDown(2);
     doc.fontSize(22).text('Medical Appointment Rendez-vous', { align: 'center' });
     doc.moveDown(2);
@@ -37,13 +31,10 @@ async function generateMedicalAppointmentPDF(req, res) {
     const footerHeight = 200;
     const bottomSectionY = doc.page.height - footerHeight;
     doc.rect(0, bottomSectionY, doc.page.width, footerHeight).fill('#f0f0f0'); 
-
     const contactTextX = 50; 
     const contactTextY = bottomSectionY + 40;
-
     doc.fontSize(16).fillColor('black')
       .text('For inquiries, please contact us at:', contactTextX, contactTextY - 20, { align: 'center' });
-
     const contactInfo = [
       'Email: info@modernclinic.com',
       'Phone: +1 (123) 456-7890',
@@ -51,15 +42,12 @@ async function generateMedicalAppointmentPDF(req, res) {
     ];
 
     const lineHeight = 15;
-
     const spaceBetween = 10;
     doc.moveDown(10);
-
     contactInfo.forEach((info, index) => {
       doc.fontSize(12)
         .text(info, contactTextX, contactTextY + index * lineHeight + spaceBetween * index, { align: 'left' });
     });
-
     doc.end();
   } catch (error) {
     console.error('Error fetching username:', error);
