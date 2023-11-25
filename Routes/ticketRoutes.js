@@ -1,5 +1,4 @@
 const express = require('express');
-const fs = require('fs');
 const generateMedicalAppointmentPDF = require('../controllers/TicketController'); // Update the path
 const TicketRoutes = express.Router();
 
