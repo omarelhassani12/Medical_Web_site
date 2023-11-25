@@ -158,7 +158,29 @@ User.beforeCreate(   (user , options) => {
       }
     }
   })
-}
+};
+User.getUsernameById = async (userId) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        id: userId
+      },
+      attributes: ['firstName', 'lastName']
+    });
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    // Concatenate first name and last name to get the username
+    const username = `${user.firstName} ${user.lastName}`;
+    return username;
+  } catch (error) {
+    console.error(`Error fetching username: ${error.message}`);
+    throw new Error('Could not fetch username'); // Provide a more generic error message
+  }
+};
+
   
 
 module.exports = User;

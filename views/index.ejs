@@ -124,7 +124,7 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
         <span class='close'>&times;</span>
         <h2>Prenez rendez-vous</h2>
         <form id='appointment-form' action="/pdf/generate-teckit" method="POST">
-          <input type="hidden" id="userIdInput" name="userId" value="">
+          <input type="hidden" id="userIdInput" name="userId" value="<%= user.id %>">
 
           <div class='form-group pt-3'>            
             <label for='myDateInput'>Choisissez une date pour votre rendez-vous</label>
@@ -693,6 +693,7 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
 
       const dateApp = $('#myDateInput').val();
       const timeApp = $('#myTimeInput').val();
+      const idPat = $('#userIdInput').val();
 
       // No need to split the time value, we can directly use it as the formatted time
       const formattedTime = timeApp;
@@ -704,6 +705,7 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
           body: new URLSearchParams({
             myDateInput: dateApp,
             myTimeInput: formattedTime,
+            userIdInput: idPat,
           }),
         });
 

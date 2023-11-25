@@ -1,32 +1,7 @@
 const  Appointment = require('../models/Appointment');
 const { Op } = require('sequelize');
 
-// module.exports.createAppointment = async (req, res) => {
-//   try {
-//     const { date, time, id } = req.body;
-//     console.log(req.body);
 
-//     const appointment = await Appointment.create({
-//       DateApp: date,
-//       HourApp: time,
-//       idPat: id,
-//       idDoc: 54,
-//     });
-
-//     res.cookie('isMakeAppointment', true, { httpOnly: true, maxAge: 60 * 60 * 24 * 1000 });
-
-//     res.status(201).json({
-//       result: appointment,
-//       isSuccess: true,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json({
-//       error: err.message || 'Failed to create appointment',
-//     });
-//   }
-// };
- 
 
 module.exports.createAppointment = async (req, res) => {
   try {
