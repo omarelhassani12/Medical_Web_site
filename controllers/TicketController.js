@@ -36,9 +36,9 @@ async function generateMedicalAppointmentPDF(req, res) {
     doc.fontSize(16).fillColor('black')
       .text('For inquiries, please contact us at:', contactTextX, contactTextY - 20, { align: 'center' });
     const contactInfo = [
-      'Email: info@modernclinic.com',
-      'Phone: +1 (123) 456-7890',
-      'Website: www.modernclinic.com'
+      'Email: info@draaeclinic.com',
+      'Phone: +212 669-918003',
+      'Website: www.draaeclinic.com'
     ];
 
     const lineHeight = 15;

@@ -693,7 +693,8 @@ background-color: rgb(72, 42, 42);/* Adjust the color as needed */
 
       const dateApp = $('#myDateInput').val();
       const timeApp = $('#myTimeInput').val();
-      const idPat = $('#userIdInput').val();
+      const idPat = $('#idUser').data('doc');
+
 
       // No need to split the time value, we can directly use it as the formatted time
       const formattedTime = timeApp;
