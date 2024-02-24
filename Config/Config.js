@@ -4,7 +4,7 @@ const SeqDB = new Sequelize(process.env.DB_NAME ,process.env.DB_USER , process.e
     host :  process.env.HOST,
     dialect : process.env.DIALECT ,
     timezone: '+01:00',
-    logging: false, // Disable query logging in console
+    logging: false,
 })
 
 module.exports = SeqDB
